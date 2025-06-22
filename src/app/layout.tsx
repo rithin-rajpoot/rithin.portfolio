@@ -6,6 +6,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import Footer from "./components/Footer";
 import SnowBackground from "./components/SnowBackground";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -46,3 +47,4 @@ export default function RootLayout({
     </html>
   );
 }
+

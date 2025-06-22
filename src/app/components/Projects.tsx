@@ -6,58 +6,6 @@ import React, { useRef } from 'react'
 import { FaExternalLinkAlt, FaGithub, FaArrowRight } from 'react-icons/fa'
 import { motion, useInView } from 'framer-motion'
 
-// Animation variants
-// const slideInFromLeft = {
-//   hidden: { 
-//     opacity: 0, 
-//     x: -100,
-//     rotateY: -15
-//   },
-//   visible: { 
-//     opacity: 1, 
-//     x: 0,
-//     rotateY: 0,
-//     transition: {
-//       duration: 0.8,
-//       ease: [0.25, 0.46, 0.45, 0.94]
-//     }
-//   }
-// }
-
-// const slideInFromRight = {
-//   hidden: { 
-//     opacity: 0, 
-//     x: 100,
-//     rotateY: 15
-//   },
-//   visible: { 
-//     opacity: 1, 
-//     x: 0,
-//     rotateY: 0,
-//     transition: {
-//       duration: 0.8,
-//       ease: [0.25, 0.46, 0.45, 0.94]
-//     }
-//   }
-// }
-
-// const slideInFromBottom = {
-//   hidden: { 
-//     opacity: 0, 
-//     y: 80,
-//     scale: 0.9
-//   },
-//   visible: { 
-//     opacity: 1, 
-//     y: 0,
-//     scale: 1,
-//     transition: {
-//       duration: 0.8,
-//       ease: [0.25, 0.46, 0.45, 0.94]
-//     }
-//   }
-// }
-
 // Individual project card component
 type Project = {
   title: string;
@@ -73,29 +21,24 @@ type ProjectCardProps = {
   index: number;
 };
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  // const ref = useRef(null)
-  // const isInView = useInView(ref, { 
-  //   amount: 0.1,
-  //   margin: "0px 0px -100px 0px"
-  // })
-
-  // Determine animation direction based on index for the single column layout
-  // const getAnimationVariant = (index: number) => {
-  //   if (index % 3 === 0) return slideInFromLeft
-  //   if (index % 3 === 1) return slideInFromBottom
-  //   return slideInFromRight
-  // }
-
-  // const animationVariant = getAnimationVariant(index)
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+  const cardRef = useRef(null)
+  const isInView = useInView(cardRef, { 
+    once: true, // Only animate once
+    amount: 0.2, // Trigger when 20% is visible (more forgiving on mobile)
+    margin: "0px 0px -100px 0px" // Start animation before fully in view
+  })
 
   return (
     <motion.div
-      // ref={ref}
-      // initial="hidden"
-      // animate={isInView ? "visible" : "hidden"}
-      // variants={animationVariant}
-      // transition={{ delay: index * 0.2 }}
+      ref={cardRef}
+      initial={{ opacity: 0, y: 60 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+      transition={{ 
+        duration: 0.8, 
+        delay: index * 0.2,
+        ease: "easeOut"
+      }}
       className="group perspective-1000"
     >
       <motion.article 
@@ -135,65 +78,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 className='object-cover' 
                 sizes='(max-width: 768px) 100vw, 50vw' 
               />
-              
-              {/* Modern gradient overlay */}
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" /> */}
-              
-              {/* Floating action buttons */}
-              {/* <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileHover={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100"
-              >
-                <Link 
-                  href={project.githubLink} 
-                  target='_blank'
-                  className="p-2 bg-black/40 backdrop-blur-sm rounded-full text-white hover:bg-black/60 transition-all duration-300"
-                >
-                  <FaGithub className='w-4 h-4'/>
-                </Link>
-                <Link 
-                  href={project.demoLink || project.githubLink} 
-                  target='_blank'
-                  className="p-2 bg-black/40 backdrop-blur-sm rounded-full text-white hover:bg-black/60 transition-all duration-300"
-                >
-                  <FaExternalLinkAlt className='w-4 h-4'/>
-                </Link>
-              </motion.div> */}
             </motion.div>
-
-            {/* Animated corner accent */}
-            {/* <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-blue-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" /> */}
           </div>
 
           {/* Content Section */}
           <div className='p-8 flex flex-col justify-center relative z-10'>
-            <motion.h3 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className='text-2xl font-bold mb-4 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300'
-            >
+            <h3 className='text-2xl font-bold mb-4 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300'>
               {project.title}
-            </motion.h3>
+            </h3>
 
-            <motion.p 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className='text-gray-600 dark:text-gray-300 mb-6 leading-relaxed'
-            >
+            <p className='text-gray-600 dark:text-gray-300 mb-6 leading-relaxed'>
               {project.description}
-            </motion.p>
+            </p>
 
             {/* Modern tech tags */}
-            <motion.div 
-              className='flex flex-wrap gap-2 mb-6'
-              // initial={{ opacity: 0, y: 10 }}
-              // animate={{ opacity: 1, y: 0 }}
-              // transition={{ delay: 0.4 }}
-            >
+            <div className='flex flex-wrap gap-2 mb-6'>
               {project.technologies.slice(0, 4).map((tech: string) => (
                 <motion.span 
                   key={tech}
@@ -211,15 +110,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                   +{project.technologies.length - 4}
                 </span>
               )}
-            </motion.div>
+            </div>
 
             {/* Action buttons */}
-            <motion.div 
-              className='flex gap-4'
-              // initial={{ opacity: 0, y: 10 }}
-              // animate={{ opacity: 1, y: 0 }}
-              // transition={{ delay: 0.5 }}
-            >
+            <div className='flex gap-4'>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link 
                   href={project.githubLink} 
@@ -241,7 +135,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                   <span>Live Demo</span>
                 </Link>
               </motion.div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
@@ -254,7 +148,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
 const Projects = () => {
   const headerRef = useRef(null)
-  const isHeaderInView = useInView(headerRef, { amount: 0.5 })
+  const isHeaderInView = useInView(headerRef, { 
+    once: true, // Only animate once
+    amount: 0.3,
+    margin: "0px 0px -50px 0px"
+  })
 
   // Only show first 3 projects
   const featuredProjects = projects.slice(0, 3)
@@ -302,11 +200,9 @@ const Projects = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-center mb-16"
       >
-        <motion.h2 
-          className='text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 dark:from-white dark:via-blue-100 dark:to-purple-100 bg-clip-text text-transparent'
-        >
+        <h2 className='text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 dark:from-white dark:via-blue-100 dark:to-purple-100 bg-clip-text text-transparent'>
           Featured Projects
-        </motion.h2>
+        </h2>
         
         <motion.div
           initial={{ scaleX: 0 }}
@@ -337,7 +233,7 @@ const Projects = () => {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="text-center"
       >
         <motion.div
