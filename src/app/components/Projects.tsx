@@ -137,10 +137,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               />
               
               {/* Modern gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+              {/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" /> */}
               
               {/* Floating action buttons */}
-              <motion.div 
+              {/* <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileHover={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
@@ -160,11 +160,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 >
                   <FaExternalLinkAlt className='w-4 h-4'/>
                 </Link>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
 
             {/* Animated corner accent */}
-            <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-blue-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            {/* <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-blue-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" /> */}
           </div>
 
           {/* Content Section */}
@@ -190,9 +190,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             {/* Modern tech tags */}
             <motion.div 
               className='flex flex-wrap gap-2 mb-6'
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              // initial={{ opacity: 0, y: 10 }}
+              // animate={{ opacity: 1, y: 0 }}
+              // transition={{ delay: 0.4 }}
             >
               {project.technologies.slice(0, 4).map((tech: string) => (
                 <motion.span 
@@ -216,9 +216,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             {/* Action buttons */}
             <motion.div 
               className='flex gap-4'
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+              // initial={{ opacity: 0, y: 10 }}
+              // animate={{ opacity: 1, y: 0 }}
+              // transition={{ delay: 0.5 }}
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link 
@@ -355,7 +355,7 @@ const Projects = () => {
             View All Projects
             <motion.span
               animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
+              transition={{ duration: 1.0, repeat: Infinity }}
               className="text-lg"
             >
               <FaArrowRight />
