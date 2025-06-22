@@ -224,7 +224,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 <Link 
                   href={project.githubLink} 
                   target='_blank' 
-                  className='flex items-center gap-2 px-6 py-3 bg-gray-900/90 dark:bg-gray-100/90 text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 backdrop-blur-sm'
+                  className='flex text-sm md:text-lg items-center gap-2 px-6 py-3 bg-gray-900/90 dark:bg-gray-100/90 text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 backdrop-blur-sm'
                 >
                   <FaGithub className='w-4 h-4'/>
                   <span>Code</span>
@@ -235,7 +235,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 <Link 
                   href={project.demoLink || project.githubLink} 
                   target='_blank' 
-                  className='flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl'
+                  className='flex text-sm md:text-lg items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl'
                 >
                   <FaExternalLinkAlt className='w-4 h-4'/>
                   <span>Live Demo</span>

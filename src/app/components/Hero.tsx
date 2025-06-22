@@ -165,7 +165,7 @@ const TerminalComponent = () => {
 
 const Hero = () => {
   return (
-    <section className="py-16 md:py-28 my-12 container max-w-7xl mx-auto px-4 relative overflow-hidden">
+    <section className="py-16 md:py-28 my-6 container max-w-7xl mx-auto px-4 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 -z-10">
         <motion.div
