@@ -14,8 +14,8 @@ export const projects: Project[] = [
         title: 'Portfolio Website',
         description: 'My personal Portfolio Website — Built using Next.js and Framer Motion, this personal portfolio showcases modern transitions, smooth animations, and a clean, responsive layout. Designed to highlight projects and skills with an engaging user experience.',
         technologies: ['Next.js', 'TypeScript', 'Framer Motion', 'Tailwind CSS'],
-        githubLink: 'https://github.com',
-        demoLink: 'https://demo.com',
+        githubLink: 'https://github.com/rithin-rajpoot/rithin.portfolio',
+        demoLink: 'https://rithin-portfolio.vercel.app/',
         image: '/projects/portfolio-website.png',
       },
       {

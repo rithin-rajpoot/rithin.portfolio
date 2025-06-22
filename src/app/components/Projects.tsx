@@ -7,56 +7,56 @@ import { FaExternalLinkAlt, FaGithub, FaArrowRight } from 'react-icons/fa'
 import { motion, useInView } from 'framer-motion'
 
 // Animation variants
-const slideInFromLeft = {
-  hidden: { 
-    opacity: 0, 
-    x: -100,
-    rotateY: -15
-  },
-  visible: { 
-    opacity: 1, 
-    x: 0,
-    rotateY: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94]
-    }
-  }
-}
+// const slideInFromLeft = {
+//   hidden: { 
+//     opacity: 0, 
+//     x: -100,
+//     rotateY: -15
+//   },
+//   visible: { 
+//     opacity: 1, 
+//     x: 0,
+//     rotateY: 0,
+//     transition: {
+//       duration: 0.8,
+//       ease: [0.25, 0.46, 0.45, 0.94]
+//     }
+//   }
+// }
 
-const slideInFromRight = {
-  hidden: { 
-    opacity: 0, 
-    x: 100,
-    rotateY: 15
-  },
-  visible: { 
-    opacity: 1, 
-    x: 0,
-    rotateY: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94]
-    }
-  }
-}
+// const slideInFromRight = {
+//   hidden: { 
+//     opacity: 0, 
+//     x: 100,
+//     rotateY: 15
+//   },
+//   visible: { 
+//     opacity: 1, 
+//     x: 0,
+//     rotateY: 0,
+//     transition: {
+//       duration: 0.8,
+//       ease: [0.25, 0.46, 0.45, 0.94]
+//     }
+//   }
+// }
 
-const slideInFromBottom = {
-  hidden: { 
-    opacity: 0, 
-    y: 80,
-    scale: 0.9
-  },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94]
-    }
-  }
-}
+// const slideInFromBottom = {
+//   hidden: { 
+//     opacity: 0, 
+//     y: 80,
+//     scale: 0.9
+//   },
+//   visible: { 
+//     opacity: 1, 
+//     y: 0,
+//     scale: 1,
+//     transition: {
+//       duration: 0.8,
+//       ease: [0.25, 0.46, 0.45, 0.94]
+//     }
+//   }
+// }
 
 // Individual project card component
 type Project = {
@@ -74,28 +74,28 @@ type ProjectCardProps = {
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { 
-    amount: 0.1,
-    margin: "0px 0px -100px 0px"
-  })
+  // const ref = useRef(null)
+  // const isInView = useInView(ref, { 
+  //   amount: 0.1,
+  //   margin: "0px 0px -100px 0px"
+  // })
 
   // Determine animation direction based on index for the single column layout
-  const getAnimationVariant = (index: number) => {
-    if (index % 3 === 0) return slideInFromLeft
-    if (index % 3 === 1) return slideInFromBottom
-    return slideInFromRight
-  }
+  // const getAnimationVariant = (index: number) => {
+  //   if (index % 3 === 0) return slideInFromLeft
+  //   if (index % 3 === 1) return slideInFromBottom
+  //   return slideInFromRight
+  // }
 
-  const animationVariant = getAnimationVariant(index)
+  // const animationVariant = getAnimationVariant(index)
 
   return (
     <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={animationVariant}
-      transition={{ delay: index * 0.2 }}
+      // ref={ref}
+      // initial="hidden"
+      // animate={isInView ? "visible" : "hidden"}
+      // variants={animationVariant}
+      // transition={{ delay: index * 0.2 }}
       className="group perspective-1000"
     >
       <motion.article 

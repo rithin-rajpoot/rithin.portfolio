@@ -93,7 +93,7 @@ const Footer = () => {
               variants={logoVariants}
               className="inline-block"
             >
-              <Link className="text-xl font-bold text-primary" href="/">
+              <Link className="text-xl font-bold text-primary text-center md:text-left" href="/">
                 &lt;RR /&gt;
               </Link>
             </motion.div>
