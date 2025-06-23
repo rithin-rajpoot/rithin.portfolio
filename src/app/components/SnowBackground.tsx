@@ -5,7 +5,7 @@ import { useMemo } from "react";
 const SnowBackground = () => {
   // Generate random snowflakes
   const snowflakes = useMemo(() => {
-    return Array.from({ length: 60 }, (_, i) => ({
+    return Array.from({ length: 50 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       delay: Math.random() * 20,

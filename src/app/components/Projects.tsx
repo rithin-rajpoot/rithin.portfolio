@@ -2,7 +2,7 @@
 import { projects } from '@/contents/projects'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect, memo } from 'react'
 import { FaExternalLinkAlt, FaGithub, FaArrowRight } from 'react-icons/fa'
 import { motion, useInView } from 'framer-motion'
 
@@ -21,36 +21,41 @@ type ProjectCardProps = {
   index: number;
 };
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+const ProjectCard: React.FC<ProjectCardProps> = memo(({ project, index }) => {
   const cardRef = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [hasAnimated, setHasAnimated] = useState(false)
+  
   const isInView = useInView(cardRef, { 
-    once: true, // Only animate once
-    amount: 0.2, // Trigger when 20% is visible (more forgiving on mobile)
-    margin: "0px 0px -100px 0px" // Start animation before fully in view
+    amount: 0.2,
+    margin: "0px 0px -100px 0px"
   })
 
+  // Only animate once when first coming into view
+  useEffect(() => {
+    if (isInView && !hasAnimated) {
+      setIsVisible(true)
+      setHasAnimated(true)
+    }
+  }, [isInView, hasAnimated])
+
   return (
-    <motion.div
+    <div
       ref={cardRef}
-      initial={{ opacity: 0, y: 60 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
-      transition={{ 
-        duration: 0.8, 
-        delay: index * 0.2,
-        ease: "easeOut"
+      className={`group perspective-1000 transition-all duration-700 ease-out ${
+        isVisible 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 translate-y-15'
+      }`}
+      style={{ 
+        transitionDelay: `${index * 200}ms`,
+        willChange: 'transform, opacity',
+        backfaceVisibility: 'hidden',
+        transform: 'translateZ(0)'
       }}
-      className="group perspective-1000"
     >
-      <motion.article 
-        whileHover={{
-          y: -8,
-          rotateX: 2,
-          transition: { 
-            duration: 0.3,
-            ease: "easeOut"
-          }
-        }}
-        className='relative bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-900/90 dark:to-gray-800/90 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl border border-white/20 dark:border-gray-700/30 transform-gpu'
+      <article 
+        className='relative bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-900/90 dark:to-gray-800/90 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl border border-white/20 dark:border-gray-700/30 transform-gpu transition-all duration-300 ease-out hover:-translate-y-2 hover:rotate-x-2 project-card'
         style={{
           background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
           backdropFilter: 'blur(20px)',
@@ -66,11 +71,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         <div className="grid md:grid-cols-2 gap-0">
           {/* Image Section */}
           <div className='relative h-64 md:h-full overflow-hidden'>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="relative w-full h-full"
-            >
+            <div className="relative w-full h-full transition-transform duration-500 ease-out hover:scale-105">
               <Image 
                 src={project.image} 
                 alt={project.title} 
@@ -78,7 +79,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 className='object-cover' 
                 sizes='(max-width: 768px) 100vw, 50vw' 
               />
-            </motion.div>
+            </div>
           </div>
 
           {/* Content Section */}
@@ -94,16 +95,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             {/* Modern tech tags */}
             <div className='flex flex-wrap gap-2 mb-6'>
               {project.technologies.slice(0, 4).map((tech: string) => (
-                <motion.span 
+                <span 
                   key={tech}
-                  whileHover={{ 
-                    scale: 1.05,
-                    backgroundColor: "rgba(59, 130, 246, 0.2)"
-                  }}
-                  className='px-3 py-1 bg-gray-100/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 hover:border-blue-500/30 transition-all duration-300'
+                  className='px-3 py-1 bg-gray-100/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 hover:border-blue-500/30 hover:scale-105 hover:bg-blue-500/10 transition-all duration-300'
                 >
                   {tech}
-                </motion.span>
+                </span>
               ))}
               {project.technologies.length > 4 && (
                 <span className='px-3 py-1 bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium'>
@@ -112,47 +109,56 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               )}
             </div>
 
-            {/* Action buttons */}
+            {/* Action buttons - Optimized for performance */}
             <div className='flex gap-4'>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link 
-                  href={project.githubLink} 
-                  target='_blank' 
-                  className='flex text-sm md:text-lg items-center gap-2 px-6 py-3 bg-gray-900/90 dark:bg-gray-100/90 text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 backdrop-blur-sm'
-                >
-                  <FaGithub className='w-4 h-4'/>
-                  <span>Code</span>
-                </Link>
-              </motion.div>
+              <Link 
+                href={project.githubLink} 
+                target='_blank' 
+                className='flex text-sm md:text-lg items-center gap-2 px-6 py-3 bg-gray-900/90 dark:bg-gray-100/90 text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 backdrop-blur-sm transform hover:scale-105 active:scale-95 project-button'
+              >
+                <FaGithub className='w-4 h-4'/>
+                <span>Code</span>
+              </Link>
 
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link 
-                  href={project.demoLink || project.githubLink} 
-                  target='_blank' 
-                  className='flex text-sm md:text-lg items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl'
-                >
-                  <FaExternalLinkAlt className='w-4 h-4'/>
-                  <span>Live Demo</span>
-                </Link>
-              </motion.div>
+              <Link 
+                href={project.demoLink || project.githubLink} 
+                target='_blank' 
+                className='flex text-sm md:text-lg items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 project-button'
+              >
+                <FaExternalLinkAlt className='w-4 h-4'/>
+                <span>Live Demo</span>
+              </Link>
             </div>
           </div>
         </div>
 
         {/* Shine effect */}
         <div className="absolute inset-0 -top-2 -left-2 bg-gradient-to-r from-transparent via-white/10 to-transparent rotate-12 scale-110 opacity-0 group-hover:opacity-100 group-hover:animate-[shine_1s_ease-out] pointer-events-none" />
-      </motion.article>
-    </motion.div>
+      </article>
+    </div>
   )
-}
+})
+
+// Add display name for debugging
+ProjectCard.displayName = 'ProjectCard'
 
 const Projects = () => {
   const headerRef = useRef(null)
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false)
+  const [hasHeaderAnimated, setHasHeaderAnimated] = useState(false)
+  
   const isHeaderInView = useInView(headerRef, { 
-    once: true, // Only animate once
     amount: 0.3,
     margin: "0px 0px -50px 0px"
   })
+
+  // Header animation logic
+  useEffect(() => {
+    if (isHeaderInView && !hasHeaderAnimated) {
+      setIsHeaderVisible(true)
+      setHasHeaderAnimated(true)
+    }
+  }, [isHeaderInView, hasHeaderAnimated])
 
   // Only show first 3 projects
   const featuredProjects = projects.slice(0, 3)
@@ -192,39 +198,40 @@ const Projects = () => {
         />
       </div>
 
-      {/* Header */}
-      <motion.div
+      {/* Header - Optimized */}
+      <div
         ref={headerRef}
-        initial={{ opacity: 0, y: 50 }}
-        animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-center mb-16"
+        className={`text-center mb-16 transition-all duration-700 ease-out ${
+          isHeaderVisible 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-12'
+        }`}
       >
         <h2 className='text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 dark:from-white dark:via-blue-100 dark:to-purple-100 bg-clip-text text-transparent'>
           Featured Projects
         </h2>
         
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={isHeaderInView ? { scaleX: 1 } : { scaleX: 0 }}
-          transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
-          className="w-32 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto rounded-full"
+        <div
+          className={`w-32 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto rounded-full transition-all duration-1000 ease-out ${
+            isHeaderVisible ? 'scale-x-100' : 'scale-x-0'
+          }`}
+          style={{ transitionDelay: '500ms' }}
         />
         
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 0.7, duration: 0.6 }}
-          className="text-gray-600 dark:text-gray-400 mt-4 text-lg max-w-2xl mx-auto"
+        <p
+          className={`text-gray-600 dark:text-gray-400 mt-4 text-lg max-w-2xl mx-auto transition-all duration-600 ease-out ${
+            isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+          }`}
+          style={{ transitionDelay: '700ms' }}
         >
           A showcase of my latest work that demonstrates my skills and passion for creating exceptional digital experiences
-        </motion.p>
-      </motion.div>
+        </p>
+      </div>
 
       {/* Projects - Single Column */}
       <div className='space-y-8 mb-16'>
         {featuredProjects.map((project, index) => (
-          <ProjectCard key={project.title} project={project} index={index} />
+          <ProjectCard key={`project-${project.title}-${index}`} project={project} index={index} />
         ))}
       </div>
 
@@ -236,17 +243,10 @@ const Projects = () => {
         viewport={{ once: true, amount: 0.3 }}
         className="text-center"
       >
-        <motion.div
-          whileHover={{
-            scale: 1.05,
-            boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)"
-          }}
-          whileTap={{ scale: 0.95 }}
-          className="inline-block"
-        >
+        <div className="inline-block transform transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:via-purple-700 hover:to-blue-900 transition-all duration-300 shadow-xl hover:shadow-2xl backdrop-blur-sm"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:via-purple-700 hover:to-blue-900 transition-all duration-300 shadow-xl backdrop-blur-sm"
           >
             View All Projects
             <motion.span
@@ -257,7 +257,7 @@ const Projects = () => {
               <FaArrowRight />
             </motion.span>
           </Link>
-        </motion.div>
+        </div>
       </motion.div>
 
       <style jsx>{`
@@ -267,6 +267,20 @@ const Projects = () => {
         }
         .perspective-1000 {
           perspective: 1000px;
+        }
+        .project-card {
+          will-change: transform, opacity;
+          backface-visibility: hidden;
+        }
+        .project-button {
+          will-change: transform;
+          backface-visibility: hidden;
+        }
+        .translate-y-15 {
+          transform: translateY(3.75rem);
+        }
+        .rotate-x-2 {
+          transform: rotateX(2deg);
         }
       `}</style>
     </section>

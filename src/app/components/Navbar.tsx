@@ -36,7 +36,7 @@ const Navbar = () => {
     >
       <div className="container max-w-7xl mx-auto px-4">
         {/* desktop menu  */}
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-18">
           <motion.div
             {...slideInLeft}
             transition={{ delay: 0.1 }}
