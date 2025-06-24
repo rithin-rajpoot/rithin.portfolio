@@ -295,12 +295,12 @@ const About = () => {
             initial="initial"
             animate={rightContentRef.isInView ? "animate" : "exit"}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="hidden lg:flex justify-center lg:justify-end"
+            className="hidden lg:flex lg:justify-end"
           >
             <motion.div
               variants={scaleIn}
               transition={{ delay: 0.2 }}
-              className="flex flex-col items-center lg:items-start mb-10"
+              className="flex flex-col items-center lg:items-start mb-10 mr-2"
             >
               <motion.div
                 animate={floatingAnimation.animate}
@@ -312,12 +312,12 @@ const About = () => {
                   alt="profile image"
                   width={300}
                   height={300}
-                  className="rounded-2xl w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover ring-4 ring-primary/20 relative z-10 shadow-2xl"
+                  className="rounded-2xl w-62 h-62 md:w-76 md:h-76 lg:w-86 lg:h-86 object-cover ring-4 ring-primary/20 relative z-10 shadow-2xl"
                 />
 
-                {/* Animated dotted circles - Made more visible */}
+                {/* Animated dotted circles */}
                 <motion.div
-                  className="absolute inset-0 rounded-2xl border-2 border-dotted border-blue-500/80"
+                  className="absolute inset-0 rounded-2xl border-2 border-dotted border-blue-500/60"
                   animate={{
                     rotate: 360,
                     scale: [1, 1.05, 1],
@@ -335,7 +335,7 @@ const About = () => {
                 />
 
                 <motion.div
-                  className="absolute inset-0 rounded-2xl border-2 border-dotted border-purple-500/70"
+                  className="absolute inset-0 rounded-2xl border-2 border-dotted border-purple-500/50"
                   animate={{
                     rotate: -360,
                     scale: [1.1, 1, 1.1],
