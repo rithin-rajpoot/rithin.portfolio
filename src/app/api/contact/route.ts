@@ -1,42 +1,44 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import nodemailer from 'nodemailer';
 
-interface ContactRequestBody {
+interface ContactForm {
   name: string;
   email: string;
   message: string;
 }
 
-export async function POST(request: Request) {
+export async function POST(req: NextRequest) {
   try {
-    const body = (await request.json()) as ContactRequestBody;
-    const { name, email, message } = body;
+    const body = await req.json();
+    const { name, email, message } = body as ContactForm;
 
-    // Validate input
     if (!name || !email || !message) {
-      return new Response(
-        JSON.stringify({ error: "All fields are required." }),
-        { status: 400 }
-      );
+      return NextResponse.json({ message: 'All fields are required' }, { status: 400 });
     }
 
-    return NextResponse.json(
-      {
-        message: "Message sent successfully!",
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS,
       },
-      { 
-        status: 200 
-      }
-    );
+    });
+
+    await transporter.sendMail({
+      from: email,
+      to: process.env.GMAIL_USER,
+      subject: `Message from ${name}`,
+      html: `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `,
+    });
+
+    return NextResponse.json({ message: 'Message sent successfully!' }, { status: 200 });
   } catch (error) {
-    const errorMessage =
-      error instanceof Error ? error.message : "Failed to send message";
-    return NextResponse.json(
-      {
-        message: errorMessage,
-      },
-      {
-        status: 500,
-      }
-    );
+    console.error('Email send error:', error);
+    return NextResponse.json({ message: 'Failed to send message' }, { status: 500 });
   }
 }
