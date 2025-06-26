@@ -20,14 +20,14 @@ export async function POST(req: NextRequest) {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS,
+        user: process.env.NEXT_PUBLIC_GMAIL_USER,
+        pass: process.env.NEXT_PUBLIC_GMAIL_PASS,
       },
     });
 
     await transporter.sendMail({
       from: email,
-      to: process.env.GMAIL_USER,
+      to: process.env.NEXT_PUBLIC_GMAIL_USER,
       subject: `Message from ${name}`,
       html: `
         <p><strong>Name:</strong> ${name}</p>
