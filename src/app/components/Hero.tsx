@@ -4,12 +4,21 @@ import Link from "next/link";
 import React from "react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { fadeInUp, floatingAnimation, liquidHover, morphingButton, scaleIn, slideInLeft, slideInRight, slideUpStagger, socialIconHover, textReveal } from "@/utils/animation";
-
+import {
+  fadeInUp,
+  floatingAnimation,
+  liquidHover,
+  morphingButton,
+  scaleIn,
+  slideInLeft,
+  slideInRight,
+  slideUpStagger,
+  socialIconHover,
+  textReveal,
+} from "@/utils/animation";
 
 // Terminal Component
 const TerminalComponent = () => {
-  
   return (
     <motion.div
       {...slideInRight}
@@ -21,15 +30,15 @@ const TerminalComponent = () => {
         {/* Terminal Header */}
         <div className="flex items-center justify-between px-4 py-3 bg-slate-800 border-b border-slate-700">
           <div className="flex space-x-2">
-            <motion.div 
+            <motion.div
               className="w-3 h-3 bg-red-500 rounded-full"
               whileHover={{ scale: 1.2 }}
             />
-            <motion.div 
+            <motion.div
               className="w-3 h-3 bg-yellow-500 rounded-full"
               whileHover={{ scale: 1.2 }}
             />
-            <motion.div 
+            <motion.div
               className="w-3 h-3 bg-green-500 rounded-full"
               whileHover={{ scale: 1.2 }}
             />
@@ -45,7 +54,7 @@ const TerminalComponent = () => {
             transition={{ delay: 0.8, duration: 0.5 }}
             className="text-slate-500 mb-4"
           >
-              <span style={{ opacity: 0.7 }}>{"// Full Stack Developer"}</span> 
+            <span style={{ opacity: 0.7 }}>{"// Full Stack Developer"}</span>
           </motion.div>
 
           <motion.div
@@ -138,25 +147,25 @@ const TerminalComponent = () => {
         className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500/20 rounded-full blur-sm"
         animate={{
           y: [0, -20, 0],
-          opacity: [0.2, 0.8, 0.2]
+          opacity: [0.2, 0.8, 0.2],
         }}
         transition={{
           duration: 4,
           repeat: Infinity,
-          ease: "easeInOut"
+          ease: "easeInOut",
         }}
       />
       <motion.div
         className="absolute -bottom-6 -left-6 w-6 h-6 bg-purple-500/20 rounded-full blur-sm"
         animate={{
           y: [0, 20, 0],
-          opacity: [0.3, 0.7, 0.3]
+          opacity: [0.3, 0.7, 0.3],
         }}
         transition={{
           duration: 5,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 2
+          delay: 2,
         }}
       />
     </motion.div>
@@ -177,7 +186,7 @@ const Hero = () => {
           transition={{
             duration: 4,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
         <motion.div
@@ -190,7 +199,7 @@ const Hero = () => {
             duration: 6,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 2
+            delay: 2,
           }}
         />
       </div>
@@ -215,45 +224,70 @@ const Hero = () => {
                 height={100}
                 className="rounded-full mb-4 w-30 h-30 md:w-32 md:h-32 object-cover ring-2 ring-primary relative z-10"
               />
-              
+
               {/* Animated dotted circles */}
               <motion.div
                 className="absolute inset-0 rounded-full border-2 border-dotted border-blue-400/40"
                 animate={{
                   rotate: 360,
-                  scale: [1, 1.1, 1]
+                  scale: [1, 1.1, 1],
                 }}
                 transition={{
                   rotate: { duration: 8, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
                 }}
-                style={{ width: '120%', height: '120%', left: '-10%', top: '-10%' }}
+                style={{
+                  width: "120%",
+                  height: "120%",
+                  left: "-10%",
+                  top: "-10%",
+                }}
               />
-              
+
               <motion.div
                 className="absolute inset-0 rounded-full border-2 border-dotted border-purple-400/30"
                 animate={{
                   rotate: -360,
-                  scale: [1.2, 1, 1.2]
+                  scale: [1.2, 1, 1.2],
                 }}
                 transition={{
                   rotate: { duration: 12, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }
+                  scale: {
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1,
+                  },
                 }}
-                style={{ width: '140%', height: '140%', left: '-20%', top: '-20%' }}
+                style={{
+                  width: "140%",
+                  height: "140%",
+                  left: "-20%",
+                  top: "-20%",
+                }}
               />
-              
+
               <motion.div
                 className="absolute inset-0 rounded-full border border-dotted border-indigo-400/20"
                 animate={{
                   rotate: 360,
-                  opacity: [0.2, 0.6, 0.2]
+                  opacity: [0.2, 0.6, 0.2],
                 }}
                 transition={{
                   rotate: { duration: 15, repeat: Infinity, ease: "linear" },
-                  opacity: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }
+                  opacity: {
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 2,
+                  },
                 }}
-                style={{ width: '160%', height: '160%', left: '-30%', top: '-30%' }}
+                style={{
+                  width: "160%",
+                  height: "160%",
+                  left: "-30%",
+                  top: "-30%",
+                }}
               />
             </motion.div>
           </motion.div>
@@ -271,7 +305,7 @@ const Hero = () => {
               whileHover={{
                 scale: 1.05,
                 textShadow: "0 0 20px rgba(59, 130, 246, 0.8)",
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
             >
               Rithin Rajpoot
@@ -349,26 +383,24 @@ const Hero = () => {
           <motion.div
             {...fadeInUp}
             transition={{ delay: 1 }}
-            className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 text-xs md:text-sm"
+            className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 text-xs md:text-lg font-"
           >
-            <motion.div
-              {...morphingButton}
-            >
-              <Link
-                href="/projects"
+            <motion.div {...morphingButton}>
+              <a
+                href="/RESUME_RITHIN_RAJPOOT.pdf"
+                // download
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-primary inline-block w-full sm:w-auto text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                View Projects
-              </Link>
+                Resume
+              </a>
             </motion.div>
 
-            <motion.div
-              {...liquidHover}
-              className="relative"
-            >
+            <motion.div {...liquidHover} className="relative">
               <Link
                 href="/contact"
-                className="border-2 border-gray-300 dark:border-gray-600 inline-block w-full sm:w-auto text-black dark:text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 relative overflow-hidden group"
+                className="mt-3 border-2 border-gray-300 dark:border-gray-600 inline-block w-full sm:w-auto text-black dark:text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 relative overflow-hidden group"
               >
                 <motion.span
                   className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
@@ -398,9 +430,27 @@ const Hero = () => {
           transition={{ duration: 2, repeat: Infinity }}
           className="text-gray-400 dark:text-gray-600 mt-16"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 13L12 18L17 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M7 6L12 11L17 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7 13L12 18L17 13"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M7 6L12 11L17 6"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </motion.div>
       </motion.div>
