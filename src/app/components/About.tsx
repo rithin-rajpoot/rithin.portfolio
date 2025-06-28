@@ -308,7 +308,7 @@ const About = () => {
                 className="relative"
               >
                 <Image
-                  src="/profile.png"
+                  src="/profile.jpg"
                   alt="profile image"
                   width={300}
                   height={300}

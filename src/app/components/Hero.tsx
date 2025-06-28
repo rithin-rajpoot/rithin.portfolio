@@ -218,7 +218,7 @@ const Hero = () => {
               className="relative block md:hidden"
             >
               <Image
-                src="/profile.png"
+                src="/profile.jpg"
                 alt="profile image"
                 width={100}
                 height={100}
