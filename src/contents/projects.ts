@@ -26,13 +26,13 @@ export const projects: Project[] = [
         demoLink: 'https://github.com/rithin-rajpoot/UberForBlood',
         image: '/projects/UFB.png',
       },
-      // {
-      //   title: 'Blog Platform',
-      //   description: 'A blogging platform with user authentication and markdown support.',
-      //   technologies: ['Gatsby', 'GraphQL', 'Contentful'],
-      //   githubLink: 'https://github.com',
-      //   demoLink: 'https://demo.com',
-      //   image: '/projects/blog-website.jpeg',
-      // },
+      {
+        title: 'Complaint Management System',
+        description: 'A modern, efficient complaint management system built with cutting-edge web technologies.',
+        technologies: ['MySQL', 'Express.js', 'EJS', 'Tailwind CSS'],
+        githubLink: 'https://github.com/rithin-rajpoot/complaint-management-system',
+        demoLink: 'https://github.com/rithin-rajpoot/complaint-management-system',
+        image: '/projects/CMS.png',
+      },
       
   ];
