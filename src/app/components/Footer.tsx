@@ -82,18 +82,18 @@ const Footer = () => {
       variants={containerVariants}
     >
       <div className="container max-w-7xl mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <motion.div 
-            className="mb-4 md:mb-0"
+            className="mb-4"
             variants={itemVariants}
           >
             <motion.div
               initial="rest"
               whileHover="hover"
               variants={logoVariants}
-              className="inline-block"
+              className="flex items-center space-x-2 cursor-pointer justify-center md:justify-start"
             >
-              <Link className="text-xl font-bold text-primary text-center md:text-left" href="/">
+              <Link className="text-xl font-bold text-primary " href="/">
                 &lt;RR /&gt;
               </Link>
             </motion.div>

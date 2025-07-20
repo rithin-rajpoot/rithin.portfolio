@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from "framer-motion";
 import { 
   FaCode, 
   FaLaptopCode, 
@@ -25,8 +26,23 @@ import {
   SiJsonwebtokens 
 } from "react-icons/si";
 
+// Animation variants for header
+const headerVariants = {
+  hidden: { opacity: 0, y: -30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut"
+    }
+  }
+};
+
 const AboutPage = () => {
   const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
+  const headerRef = useRef(null);
+  const isHeaderInView = useInView(headerRef, { amount: 0.5 });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -118,20 +134,36 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen">
       <div className="container max-w-7xl mx-auto py-10 px-4">
-        {/* Header */}
-        <div 
-          id="animate-header"
-          className={`text-center mb-16 transform transition-all duration-1000 ${
-            isVisible['animate-header'] || true 
-              ? 'translate-y-0 opacity-100' 
-              : 'translate-y-8 opacity-0'
-          }`}
+        {/* Header - Updated to match Projects component */}
+        <motion.div
+          ref={headerRef}
+          initial="hidden"
+          animate={isHeaderInView ? "visible" : "hidden"}
+          variants={headerVariants}
+          className="text-center mb-16"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent animate-pulse">
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent"
+          >
             About Me
-          </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full shadow-lg"></div>
-        </div>
+          </motion.h1>
+          
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={isHeaderInView ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
+            className="w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto rounded-full mb-6"
+          />
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+          >
+            Learn more about my journey, skills, and passion for web development
+          </motion.p>
+        </motion.div>
 
         {/* Bio Section */}
         <section 
@@ -155,41 +187,7 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Skills Section */}
-        <section 
-          id="animate-skills"
-          className="mb-20"
-        >
-          <h2 className={`text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent transform transition-all duration-1000 ${
-            isVisible['animate-skills'] 
-              ? 'translate-y-0 opacity-100' 
-              : 'translate-y-8 opacity-0'
-          }`}>
-            Skills & Technologies
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <SkillCard 
-              icon={FaCode} 
-              title="Frontend" 
-              techs={technologies.frontend}
-              delay={100}
-            />
-            <SkillCard 
-              icon={FaLaptopCode} 
-              title="Backend" 
-              techs={technologies.backend}
-              delay={200}
-            />
-            <SkillCard 
-              icon={FaTools} 
-              title="Tools & Others" 
-              techs={technologies.tools}
-              delay={300}
-            />
-          </div>
-        </section>
-
-        {/* Education Section */}
+         {/* Education Section */}
         <section 
           id="animate-education"
           className={`mb-16 transform transition-all duration-1000 delay-400 ${
@@ -218,9 +216,60 @@ const AboutPage = () => {
               </div>
             </div>
           </div>
+          <div className="max-w-3xl mx-auto mt-4">
+            <div className="bg-white/70 dark:bg-gray-800/30 backdrop-blur-xs p-8 rounded-2xl shadow-xl border border-gray-200/30 dark:border-gray-700/30 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-500">
+              <div className="relative">
+                <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-600 rounded-full"></div>
+                <h3 className="text-xl md:text-2xl font-semibold mb-3 text-gray-800 dark:text-white">
+                  Intermediate - MPC
+                </h3>
+                <p className="text-blue-600 dark:text-blue-400 font-medium mb-2 text-lg">
+                  Keshav Memorial Junior College | 2021 - 2023
+                </p>
+                <p className="text-gray-600 dark:text-gray-400 flex items-center">
+                  <FaDatabase className="mr-2" />
+                  Hyderabad, Telangana, India
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
 
-        
+        {/* Skills Section */}
+        <section 
+          id="animate-skills"
+          className="mb-20"
+        >
+          <h2 className={`text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent transform transition-all duration-1000 ${
+            isVisible['animate-skills'] 
+              ? 'translate-y-0 opacity-100' 
+              : 'translate-y-8 opacity-0'
+          }`}>
+            Skills & Technologies
+          </h2>
+          <div className="sm:px-12 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <SkillCard 
+              icon={FaCode} 
+              title="Frontend" 
+              techs={technologies.frontend}
+              delay={100}
+            />
+            <SkillCard 
+              icon={FaLaptopCode} 
+              title="Backend" 
+              techs={technologies.backend}
+              delay={200}
+            />
+            <SkillCard 
+              icon={FaTools} 
+              title="Tools & Others" 
+              techs={technologies.tools}
+              delay={300}
+            />
+          </div>
+        </section>
+
+       
       </div>
     </div>
   );

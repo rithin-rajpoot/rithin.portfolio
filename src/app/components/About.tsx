@@ -113,7 +113,7 @@ const About = () => {
       icon: "💻",
     },
     {
-      number: "200+",
+      number: "300+",
       label: "DSA Problems Solved",
       icon: "🧠",
     },
@@ -196,23 +196,6 @@ const About = () => {
               </div>
             </motion.div>
 
-            {/* <motion.div
-              variants={fadeInUp}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="space-y-4"
-            >
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                My journey in web development started with a curiosity for how things work behind the scenes. 
-                Today, I'm proficient in MongoDB for database management, Express.js for server-side logic, 
-                React.js for interactive frontends, and Node.js for scalable backend services.
-              </p>
-              
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                Beyond coding, I'm a dedicated DSA enthusiast who believes that strong problem-solving 
-                skills are the foundation of great software development. I continuously challenge myself 
-                with algorithmic problems to sharpen my logical thinking.
-              </p>
-            </motion.div> */}
 
             {/* Skills */}
             <motion.div

@@ -2,6 +2,14 @@
 import { Project } from "@/types";
 
 export const projects: Project[] = [
+   {
+        title: 'UberForBlood',
+        description: 'A MERN-based platform for real-time donor-seeker interaction, facilitating blood donation and emergency requests.',
+        technologies: ['React.js', 'Redux toolkit', 'Socket.io', 'MongoDB', 'Node.js', 'Express.js', 'Tailwind CSS', 'Google Maps API'],
+        githubLink: 'https://github.com/rithin-rajpoot/UberForBlood',
+        demoLink: 'https://uber-for-blood-frontend.vercel.app/',
+        image: '/projects/UFB.png',
+      },
       {
         title: 'Gup Shup',
         description: 'Gup Shup is a real-time chat application built with the MERN stack and Redux Toolkit. It features secure authentication (JWT), real-time messaging (Socket.io), a fully responsive design using Tailwind CSS, and over 32 customizable UI themes to enhance user experience.',
@@ -11,28 +19,20 @@ export const projects: Project[] = [
         image: '/projects/chat-app.png',
       },
       {
-        title: 'Portfolio Website',
-        description: 'My personal Portfolio Website — Built using Next.js and Framer Motion, this personal portfolio showcases modern transitions, smooth animations, and a clean, responsive layout. Designed to highlight projects and skills with an engaging user experience.',
-        technologies: ['Next.js', 'TypeScript', 'Framer Motion', 'Tailwind CSS'],
-        githubLink: 'https://github.com/rithin-rajpoot/rithin.portfolio',
-        demoLink: 'https://rithin-portfolio.vercel.app/',
-        image: '/projects/portfolio-website.png',
-      },
-      {
-        title: 'UberForBlood',
-        description: 'A MERN-based platform for real-time donor-seeker interaction, facilitating blood donation and emergency requests.',
-        technologies: ['React.js', 'Redux toolkit', 'Socket.io', 'Tailwind CSS', 'MongoDB', 'Node.js', 'Express.js'],
-        githubLink: 'https://github.com/rithin-rajpoot/UberForBlood',
-        demoLink: 'https://github.com/rithin-rajpoot/UberForBlood',
-        image: '/projects/UFB.png',
-      },
-      {
         title: 'Complaint Management System',
         description: 'A modern, efficient complaint management system built with cutting-edge web technologies.',
         technologies: ['MySQL', 'Express.js', 'EJS', 'Tailwind CSS'],
         githubLink: 'https://github.com/rithin-rajpoot/complaint-management-system',
         demoLink: 'https://github.com/rithin-rajpoot/complaint-management-system',
         image: '/projects/CMS.png',
+      },
+      {
+        title: 'Portfolio Website',
+        description: 'My personal Portfolio Website — Built using Next.js and Framer Motion, this personal portfolio showcases modern transitions, smooth animations, and a clean, responsive layout. Designed to highlight projects and skills with an engaging user experience.',
+        technologies: ['Next.js', 'TypeScript', 'Framer Motion', 'Tailwind CSS'],
+        githubLink: 'https://github.com/rithin-rajpoot/rithin.portfolio',
+        demoLink: 'https://rithin-portfolio.vercel.app/',
+        image: '/projects/portfolio-website.png',
       },
       
   ];

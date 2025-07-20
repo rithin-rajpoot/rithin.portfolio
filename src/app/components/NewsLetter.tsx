@@ -2,7 +2,7 @@ import React from "react";
 
 const NewsLetter = () => {
   return (
-    <section className=" bg-white dark:bg-dark/50 rounded-lg shadow-md overflow-hidden animate-slide-up">
+    <section className="max-w-7xl mx-auto bg-white/70 dark:bg-gray-800/30 backdrop-blur-xs rounded-2xl mb-12 shadow-xl border border-gray-200/30 dark:border-gray-700/30 animate-slide-up">
       <div className="p-8 md:p-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -16,7 +16,7 @@ const NewsLetter = () => {
               </p>
             </div>
 
-            <form className="flex felx-col md:flex-row gap-4">
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -24,7 +24,7 @@ const NewsLetter = () => {
               />
               <button
                 type="submit"
-                className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors hover:via-purple-700 hover:to-blue-900 duration-300 shadow-xl backdrop-blur-sm"
               >
                 Subscribe
               </button>
