@@ -1,5 +1,5 @@
 "use client";
-import { projects } from '@/contents/projects'
+import { featuredProjects } from '@/contents/featuredProjects'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useRef, useState, useEffect, memo } from 'react'
@@ -161,7 +161,7 @@ const Projects = () => {
   }, [isHeaderInView, hasHeaderAnimated])
 
   // Only show first 3 projects
-  const featuredProjects = projects.slice(0, 3)
+  const projects = featuredProjects.slice(0, 3)
 
   return (
     <section className='py-20 container max-w-6xl mx-auto px-4 relative overflow-hidden'>
@@ -230,7 +230,7 @@ const Projects = () => {
 
       {/* Projects - Single Column */}
       <div className='space-y-8 mb-16'>
-        {featuredProjects.map((project, index) => (
+        {projects.map((project, index) => (
           <ProjectCard key={`project-${project.title}-${index}`} project={project} index={index} />
         ))}
       </div>
