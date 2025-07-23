@@ -373,7 +373,7 @@ const Hero = () => {
             <motion.a
               {...socialIconHover}
               target="_blank"
-              href="https://x.com/RajpootRithin?t=KRtMImIpI9yU0_BtOug4LQ&s=08"
+              href="https://x.com/RajpootRithin"
               className="text-2xl text-gray-800 dark:text-gray-300 hover:text-primary transition-colors duration-300 p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
             >
               <FaTwitter />

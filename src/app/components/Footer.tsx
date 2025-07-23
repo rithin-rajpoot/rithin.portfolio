@@ -146,7 +146,7 @@ const Footer = () => {
               variants={iconVariants}
             >
               <Link
-                href="https://github.com/rithin-rajpoot"
+                href="https://x.com/RajpootRithin"
                 className="text-2xl text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-300"
               >
                 <FaTwitter />
