@@ -387,7 +387,7 @@ const Hero = () => {
           >
             <motion.div {...morphingButton}>
               <a
-                href="/RESUME_RITHIN_RAJPOOT.pdf"
+                href="/Resume_Rithin.pdf"
                 // download
                 target="_blank"
                 rel="noopener noreferrer"
