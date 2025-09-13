@@ -3,12 +3,12 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
    {
-        title: 'UberForBlood',
+        title: 'RakthSetu',
         description: 'A MERN-based platform for real-time donor-seeker interaction, facilitating blood donation and emergency requests.',
         technologies: ['React.js', 'Redux toolkit', 'Socket.io', 'MongoDB', 'Node.js', 'Express.js', 'Tailwind CSS', 'Google Maps API'],
-        githubLink: 'https://github.com/rithin-rajpoot/UberForBlood',
-        demoLink: 'https://uber-for-blood.vercel.app/',
-        image: '/projects/UFB.png',
+        githubLink: 'https://github.com/rithin-rajpoot/rakthsetu',
+        demoLink: 'https://rakthsetu-v1.vercel.app/',
+        image: '/projects/rakthsetu.png',
       },
       {
         title: 'EliteShop',
