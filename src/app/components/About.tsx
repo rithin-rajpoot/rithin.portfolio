@@ -190,7 +190,7 @@ const About = () => {
                   <span className="font-semibold text-purple-600 dark:text-purple-400">
                     clean, efficient code
                   </span>{" "}
-                  and delivering real-time, user-friendly experiences that make
+                  and delivering user-friendly experiences that make
                   a difference.
                 </p>
               </div>
