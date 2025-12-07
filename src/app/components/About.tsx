@@ -63,27 +63,22 @@ const useScrollAnimation = (threshold = 0.1, triggerOnce = false) => {
 const About = () => {
   const skills = [
     {
-      name: "MongoDB",
-      color:
-        "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-    },
-    {
-      name: "Java",
+      name: "Core Java",
       color: "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200",
-    },
-    {
-      name: "React.js",
-      color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-    },
-    {
-      name: "Node.js",
-      color:
-        "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200",
     },
     {
       name: "JavaScript",
       color:
         "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
+    },
+    {
+      name: "Node.js",
+      color:
+      "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200",
+    },
+    {
+      name: "React.js",
+      color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
     },
     {
       name: "Redux Toolkit",
@@ -95,7 +90,7 @@ const About = () => {
       color: "bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-200",
     },
     {
-      name: "Git",
+      name: "Git/GitHub",
       color:
         "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
     },
@@ -160,7 +155,7 @@ const About = () => {
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
           <motion.div
             ref={leftContentRef.ref}
@@ -177,21 +172,9 @@ const About = () => {
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
                 Full Stack MERN Developer
               </h3>
-              <div className="max-w-4xl mx-auto  ">
-                <p className="text-sm md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed ">
-                  I&apos;m a passionate{" "}
-                  <span className="font-semibold text-blue-600 dark:text-blue-400">
-                    Full-Stack MERN developer
-                  </span>{" "}
-                  with a strong foundation in both frontend and backend
-                  technologies. I specialize in building scalable web
-                  applications using modern technologies and frameworks. I focus
-                  on writing{" "}
-                  <span className="font-semibold text-purple-600 dark:text-purple-400">
-                    clean, efficient code
-                  </span>{" "}
-                  and delivering user-friendly experiences that make
-                  a difference.
+              <div className="max-w-4xl mx-auto ">
+                <p className="text-sm md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  I&apos;m a Computer Science student with experience in frontend and backend development using React, Node.js, and MongoDB. I like building real-world projects, learning new technologies, and improving my problem-solving skills.
                 </p>
               </div>
             </motion.div>

@@ -1,18 +1,14 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useInView } from "framer-motion";
+import React, { useState, useEffect } from 'react';
 import { 
-  FaCode, 
-  FaLaptopCode, 
-  FaTools, 
   FaReact, 
   FaJs, 
   FaHtml5, 
   FaCss3Alt, 
-  FaNodeJs, 
   FaDatabase,
   FaGitAlt,
-  FaGithub
+  FaGithub,
+  FaJava
 } from "react-icons/fa";
 import { 
   SiTypescript, 
@@ -23,27 +19,18 @@ import {
   SiMysql, 
   SiPostman, 
   SiSocketdotio, 
-  SiJsonwebtokens 
+  SiJsonwebtokens,
+  SiPython,
+  SiC,
+  SiFlutter,
+  SiVite,
+  SiNodedotjs
 } from "react-icons/si";
+import type { IconType } from "react-icons";
 
-// Animation variants for header
-const headerVariants = {
-  hidden: { opacity: 0, y: -30 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut"
-    }
-  }
-};
 
 const AboutPage = () => {
   const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
-  const headerRef = useRef(null);
-  const isHeaderInView = useInView(headerRef, { amount: 0.5 });
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -65,65 +52,84 @@ const AboutPage = () => {
     return () => observer.disconnect();
   }, []);
 
-  const technologies = {
-    frontend: [
-      { icon: FaReact, name: "React", color: "text-blue-500" },
-      { icon: SiNextdotjs, name: "Next.js", color: "text-gray-800 dark:text-white" },
-      { icon: FaJs, name: "JavaScript", color: "text-yellow-500" },
-      { icon: SiTypescript, name: "TypeScript", color: "text-blue-600" },
-      { icon: SiTailwindcss, name: "Tailwind CSS", color: "text-cyan-500" },
-      { icon: FaHtml5, name: "HTML5", color: "text-orange-600" },
-      { icon: FaCss3Alt, name: "CSS3", color: "text-blue-500" }
-    ],
-    backend: [
-      { icon: FaNodeJs, name: "Node.js", color: "text-green-600" },
-      { icon: SiExpress, name: "Express.js", color: "text-gray-600 dark:text-gray-300" },
-      { icon: SiMongodb, name: "MongoDB", color: "text-green-500" },
-      { icon: SiMysql, name: "MySQL", color: "text-blue-600" }
-    ],
-    tools: [
-      { icon: FaGitAlt, name: "Git", color: "text-orange-600" },
-      { icon: FaGithub, name: "GitHub", color: "text-gray-800 dark:text-white" },
-      { icon: SiPostman, name: "Postman", color: "text-orange-500" },
-      { icon: SiSocketdotio, name: "Socket.io", color: "text-gray-800 dark:text-white" },
-      { icon: SiJsonwebtokens, name: "JWT", color: "text-purple-600" }
-    ]
+  type SkillItem = {
+    icon: IconType;
+    name: string;
+    color: string;
   };
 
-  type SkillCardProps = {
-    icon: React.ComponentType<React.SVGProps<SVGSVGElement> & { className?: string }>;
+  type SkillSectionType = {
+    key: string;
     title: string;
-    techs: { icon: React.ComponentType<{ className?: string }>; name: string; color: string }[];
+    items: SkillItem[];
     delay?: number;
   };
 
-  const SkillCard: React.FC<SkillCardProps> = ({ icon: Icon, title, techs, delay = 0 }) => (
-    <div 
-      className={`bg-white dark:bg-gray-800/30 opacity p-6 rounded-xl shadow-lg hover:shadow-2xl transform transition-all duration-700 hover:-translate-y-2 hover:scale-105 backdrop-blur-xs border border-gray-200/20 dark:border-gray-700/30 ${
-        isVisible['animate-skills'] 
-          ? 'translate-y-0 opacity-100' 
-          : 'translate-y-8 opacity-0'
-      }`}
+  const skillSections: SkillSectionType[] = [
+    {
+      key: "languages",
+      title: "Programming Languages",
+      delay: 100,
+      items: [
+        { icon: FaJava, name: "Java", color: "text-[#F89820]" },
+        { icon: FaJs, name: "JavaScript", color: "text-[#F7DF1E]" },
+        { icon: SiPython, name: "Python", color: "text-[#3776AB]" },
+        { icon: SiTypescript, name: "TypeScript", color: "text-[#3178C6]" },
+        { icon: SiC, name: "C", color: "text-[#A8B9CC]" },
+      ]
+    },
+    {
+      key: "web-dev",
+      title: "Web Development",
+      delay: 200,
+      items: [
+        { icon: SiNodedotjs, name: "Node.js", color: "text-[#3C873A]" },
+        { icon: FaHtml5, name: "HTML", color: "text-[#E34F26]" },
+        { icon: FaCss3Alt, name: "CSS3", color: "text-[#1572B6]" },
+        { icon: FaReact, name: "React", color: "text-[#61DAFB]" },
+        { icon: SiFlutter, name: "Flutter", color: "text-[#02569B]" },
+        { icon: SiExpress, name: "Express.js", color: "text-gray-900 dark:text-white" },
+        { icon: SiNextdotjs, name: "Next.js", color: "text-gray-900 dark:text-white" },
+        { icon: SiVite, name: "Vite", color: "text-[#646CFF]" },
+      ]
+    },
+    {
+      key: "tools",
+      title: "Tools & Platforms",
+      delay: 300,
+      items: [
+        { icon: SiTailwindcss, name: "Tailwind CSS", color: "text-[#38BDF8]" },
+        { icon: SiMongodb, name: "MongoDB", color: "text-[#47A248]" },
+        { icon: SiMysql, name: "MySQL", color: "text-[#005C84]" },
+        { icon: FaGitAlt, name: "Git", color: "text-[#F05032]" },
+        { icon: FaGithub, name: "GitHub", color: "text-gray-900 dark:text-white" },
+        { icon: SiPostman, name: "Postman", color: "text-[#FF6C37]" },
+        { icon: SiSocketdotio, name: "Socket.io", color: "text-gray-900 dark:text-white" },
+        { icon: SiJsonwebtokens, name: "JWT", color: "text-[#823998]" }
+      ]
+    }
+  ];
+
+  const SkillSection: React.FC<SkillSectionType> = ({ title, items, delay = 0 }) => (
+    <div
+      className="space-y-6 rounded-3xl"
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mb-4 mx-auto shadow-lg">
-        <Icon className="h-8 w-8 text-white" />
+      <div className="flex items-center justify-between">
+        <h3 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+          {title}
+          <span className="ml-3 text-emerald-500">→</span>
+        </h3>
       </div>
-      <h3 className="text-xl font-semibold mb-4 text-center bg-gradient-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
-        {title}
-      </h3>
-      <div className="grid grid-cols-3 gap-3 mt-12">
-        {techs.map((tech, index) => (
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+        {items.map((item) => (
           <div
-            key={tech.name}
-            className="group flex flex-col items-center p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all duration-300 transform hover:scale-110"
-            style={{ animationDelay: `${index * 100}ms` }}
+            key={item.name}
+            className="group relative flex flex-col items-center justify-center gap-3 rounded-2xl border border-gray-300/40 dark:border-white/10 bg-white/90 dark:bg-white/5 px-4 py-6 shadow-[0_16px_40px_-28px_rgba(15,23,42,0.6)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-emerald-400/70 dark:hover:border-emerald-300/60"
           >
-            <tech.icon 
-              className={`h-10 w-10 ${tech.color} transition-all duration-300 group-hover:scale-125 group-hover:drop-shadow-lg`} 
-            />
-            <span className="text-xs mt-1 text-gray-600 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              {tech.name}
+            <item.icon className={`h-10 w-10 ${item.color} transition-transform duration-300 group-hover:scale-110`} />
+            <span className="text-sm font-medium text-gray-700 dark:text-slate-200 tracking-wide text-center">
+              {item.name}
             </span>
           </div>
         ))}
@@ -133,80 +139,29 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="container max-w-7xl mx-auto py-10 px-4">
-        {/* Header - Updated to match Projects component */}
-        <motion.div
-          ref={headerRef}
-          initial="hidden"
-          animate={isHeaderInView ? "visible" : "hidden"}
-          variants={headerVariants}
-          className="text-center mb-16"
-        >
-          <motion.h1 
-            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent"
-          >
-            About Me
-          </motion.h1>
-          
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={isHeaderInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
-            className="w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto rounded-full mb-6"
-          />
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
-          >
-            Learn more about my journey, skills, and passion for web development
-          </motion.p>
-        </motion.div>
-
-        {/* Bio Section */}
-        <section 
-          id="animate-bio"
-          className={`mb-20 transform transition-all duration-1000 delay-200 ${
-            isVisible['animate-bio'] || true
-              ? 'translate-y-0 opacity-100' 
-              : 'translate-y-8 opacity-0'
-          }`}
-        >
-           <div className="max-w-4xl mx-auto bg-white/70 dark:bg-gray-800/30 backdrop-blur-xs rounded-2xl p-8 shadow-xl border border-gray-200/30 dark:border-gray-700/30">
-            <p className="text-sm md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-center mb-6">
-              Passionate about creating <span className="font-semibold text-blue-600 dark:text-blue-400">dynamic and responsive web applications</span> using the MERN stack. I specialize in building <span className="font-semibold text-purple-600 dark:text-purple-400">scalable solutions</span> that deliver exceptional user experiences and robust backend functionality.
-            </p>
-            <p className="text-sm md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-center mb-6">
-              My journey in web development started with a curiosity for how things work behind the scenes. Today, I&apos;m proficient in <span className="font-semibold text-green-600 dark:text-green-400">MongoDB</span> for database management, <span className="font-semibold text-gray-600 dark:text-gray-300">Express.js</span> for server-side logic, <span className="font-semibold text-blue-500 dark:text-blue-400">React.js</span> for interactive frontends, and <span className="font-semibold text-green-500 dark:text-green-400">Node.js</span> for scalable backend services.
-            </p>
-            <p className="text-sm md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-center">
-              Beyond coding, I&apos;m a dedicated <span className="font-semibold text-orange-600 dark:text-orange-400">DSA enthusiast</span> who believes that strong problem-solving skills are the foundation of great software development. I continuously challenge myself with algorithmic problems to sharpen my logical thinking.
-            </p>
-          </div>
-        </section>
-
+      <div className="container max-w-7xl mx-auto py-10 px-auto">
+    
          {/* Education Section */}
         <section 
           id="animate-education"
-          className={`mb-16 transform transition-all duration-1000 delay-400 ${
+          className={`mt-22 mb-1 mx-[3.5rem] transform flex flex-col md:flex-row justify-center items-center md:justify-between transition-all duration-1000 delay-400 ${
             isVisible['animate-education'] 
               ? 'translate-y-0 opacity-100' 
               : 'translate-y-8 opacity-0'
           }`}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
-            Education
+            Education <span className="ml-3 text-emerald-500">→</span>
+
           </h2>
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-white/70 dark:bg-gray-800/30 backdrop-blur-xs p-8 rounded-2xl shadow-xl border border-gray-200/30 dark:border-gray-700/30 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-500">
+          <div className='flex flex-col w-full max-w-2xl items-end  gap-4'>
+            <div className="relative w-full overflow-hidden rounded-3xl border border-gray-200/40 dark:border-white/10 bg-gradient-to-br from-white via-gray-100 to-gray-200 dark:from-slate-950 dark:via-slate-950/60 dark:to-slate-900 px-8 py-10 shadow-[0_24px_70px_-32px_rgba(15,23,42,0.65)] transition-all duration-500 hover:-translate-y-1 hover:border-emerald-400/70 dark:hover:border-emerald-300/60">
               <div className="relative">
                 <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-600 rounded-full"></div>
-                <h3 className="text-xl md:text-2xl font-semibold mb-3 text-gray-800 dark:text-white">
+                <h3 className="text-lg md:text-2xl font-semibold mb-3 text-gray-800 dark:text-white">
                   Bachelor of Technology in Computer Science
                 </h3>
-                <p className="text-blue-600 dark:text-blue-400 font-medium mb-2 text-lg">
+                <p className="text-blue-600 dark:text-blue-400 font-medium mb-2 text-md md:text-lg">
                   CMR Technical Campus | 2023 - 2027
                 </p>
                 <p className="text-gray-600 dark:text-gray-400 flex items-center">
@@ -215,15 +170,13 @@ const AboutPage = () => {
                 </p>
               </div>
             </div>
-          </div>
-          <div className="max-w-3xl mx-auto mt-4">
-            <div className="bg-white/70 dark:bg-gray-800/30 backdrop-blur-xs p-8 rounded-2xl shadow-xl border border-gray-200/30 dark:border-gray-700/30 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-500">
+            <div className="relative w-full overflow-hidden rounded-3xl border border-gray-200/40 dark:border-white/10 bg-gradient-to-br from-white via-gray-100 to-gray-200 dark:from-slate-950 dark:via-slate-950/60 dark:to-slate-900 px-8 py-10 shadow-[0_24px_70px_-32px_rgba(15,23,42,0.65)] transition-all duration-500 hover:-translate-y-1 hover:border-emerald-400/70 dark:hover:border-emerald-300/60">
               <div className="relative">
                 <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-600 rounded-full"></div>
-                <h3 className="text-xl md:text-2xl font-semibold mb-3 text-gray-800 dark:text-white">
+                <h3 className="text-lg md:text-2xl font-semibold mb-3 text-gray-800 dark:text-white">
                   Intermediate - MPC
                 </h3>
-                <p className="text-blue-600 dark:text-blue-400 font-medium mb-2 text-lg">
+                <p className="text-blue-600 dark:text-blue-400 font-medium mb-2 text-md md:text-lg">
                   Keshav Memorial Junior College | 2021 - 2023
                 </p>
                 <p className="text-gray-600 dark:text-gray-400 flex items-center">
@@ -235,41 +188,21 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Skills Section */}
+         {/* Skills Section */}
         <section 
           id="animate-skills"
-          className="mb-20"
+          className="my-20"
         >
-          <h2 className={`text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent transform transition-all duration-1000 ${
-            isVisible['animate-skills'] 
-              ? 'translate-y-0 opacity-100' 
-              : 'translate-y-8 opacity-0'
-          }`}>
-            Skills & Technologies
-          </h2>
-          <div className="sm:px-12 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <SkillCard 
-              icon={FaCode} 
-              title="Frontend" 
-              techs={technologies.frontend}
-              delay={100}
-            />
-            <SkillCard 
-              icon={FaLaptopCode} 
-              title="Backend" 
-              techs={technologies.backend}
-              delay={200}
-            />
-            <SkillCard 
-              icon={FaTools} 
-              title="Tools & Others" 
-              techs={technologies.tools}
-              delay={300}
-            />
+          <div className="sm:px-12 px-5 grid grid-cols-1 gap-8">
+            {skillSections.map(({ key: sectionKey, ...sectionProps }) => (
+              <SkillSection
+                key={sectionKey}
+                {...sectionProps}
+              />
+            ))}
           </div>
         </section>
 
-       
       </div>
     </div>
   );

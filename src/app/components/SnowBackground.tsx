@@ -1,19 +1,34 @@
 "use client";
 import { motion } from "framer-motion";
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
+
+type Snowflake = {
+  id: number;
+  x: number;
+  delay: number;
+  duration: number;
+  size: number;
+  opacity: number;
+  blur: boolean;
+};
+
+const createSnowflakes = () =>
+  Array.from({ length: 50 }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    delay: Math.random() * 20,
+    duration: 15 + Math.random() * 15,
+    size: 2 + Math.random() * 4,
+    opacity: 0.4 + Math.random() * 0.5,
+    blur: Math.random() > 0.5,
+  }));
 
 const SnowBackground = () => {
-  // Generate random snowflakes
-  const snowflakes = useMemo(() => {
-    return Array.from({ length: 50 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      delay: Math.random() * 20,
-      duration: 15 + Math.random() * 15,
-      size: 2 + Math.random() * 4,
-      opacity: 0.4 + Math.random() * 0.5,
-      blur: Math.random() > 0.5,
-    }));
+  // Generate snowflakes client-side to keep SSR markup stable
+  const [snowflakes, setSnowflakes] = useState<Snowflake[]>([]);
+
+  useEffect(() => {
+    setSnowflakes(createSnowflakes());
   }, []);
 
   return (

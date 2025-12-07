@@ -13,7 +13,6 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({children}:{children:  React.ReactNode}) =>{
     const [theme, setThemeState] = useState<Theme>("light");
-    const [mounted, setMounted] = useState<boolean>(false);
 
     //update the theme
     const setTheme = (newTheme: Theme) =>{
@@ -35,13 +34,7 @@ export const ThemeProvider = ({children}:{children:  React.ReactNode}) =>{
 
         setThemeState(initialTheme);
         document.documentElement.classList.toggle("dark", initialTheme === "dark");
-        setMounted(true);
     },[])
-
-    // prevent flash of wrong theme
-    if (!mounted) {
-        return null;
-    }
 
     return (
         <ThemeContext.Provider value={{theme, setTheme, toggleTheme}}>

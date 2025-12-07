@@ -329,7 +329,7 @@ const Hero = () => {
               transition={{ delay: 0.8 }}
               className="inline-block"
             >
-              Full Stack Developer
+              Full Stack Developer (MERN)
             </motion.span>
             <motion.span
               initial={{ opacity: 0, x: -20 }}
@@ -393,7 +393,7 @@ const Hero = () => {
                 rel="noopener noreferrer"
                 className="bg-primary inline-block w-full sm:w-auto text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                Resume
+                View Resume
               </a>
             </motion.div>
 
@@ -406,7 +406,7 @@ const Hero = () => {
                   className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
                   initial={false}
                 />
-                <span className="relative z-10">Contact Me</span>
+                <span className="relative z-10">Get In Touch</span>
               </Link>
             </motion.div>
           </motion.div>
