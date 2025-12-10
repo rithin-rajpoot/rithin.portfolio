@@ -125,8 +125,8 @@ const ProjectCard: React.FC<ProjectCardProps> = memo(({ project, index }) => {
                 target='_blank' 
                 className='flex text-sm md:text-lg items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 project-button'
               >
+                <span>View Live</span>
                 <FaExternalLinkAlt className='w-4 h-4'/>
-                <span>Live Demo</span>
               </Link>
             </div>
           </div>
