@@ -19,7 +19,7 @@ const ProjectsPage = () => {
         <div className="w-24 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto rounded-full mb-6" />
 
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Here are some of my recent projects. Click on the links to view the code or live demos.
+          Here are some of my recent projects. Click on the links to view the code or live.
         </p>
       </div>
 
