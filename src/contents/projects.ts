@@ -20,24 +20,24 @@ export const projects: Project[] = [
     demoLink: "https://chronical-x.vercel.app/",
     image: "/projects/chronical-x.png"
   },
-  {
-    title: "RakthSetu",
-    description:
-      "A MERN-based platform for real-time donor-seeker interaction, facilitating blood donation and emergency requests.",
-    technologies: [
-      "React.js",
-      "Redux toolkit",
-      "Socket.io",
-      "MongoDB",
-      "Node.js",
-      "Express.js",
-      "Tailwind CSS",
-      "Google Maps API",
-    ],
-    githubLink: "https://github.com/rithin-rajpoot/rakthsetu",
-    demoLink: "https://rakthsetu-v1.vercel.app/",
-    image: "/projects/rakthsetu.png",
-  },
+  // {
+  //   title: "RakthSetu",
+  //   description:
+  //     "A MERN-based platform for real-time donor-seeker interaction, facilitating blood donation and emergency requests.",
+  //   technologies: [
+  //     "React.js",
+  //     "Redux toolkit",
+  //     "Socket.io",
+  //     "MongoDB",
+  //     "Node.js",
+  //     "Express.js",
+  //     "Tailwind CSS",
+  //     "Google Maps API",
+  //   ],
+  //   githubLink: "https://github.com/rithin-rajpoot/rakthsetu",
+  //   demoLink: "https://rakthsetu-v1.vercel.app/",
+  //   image: "/projects/rakthsetu.png",
+  // },
   {
     title: "EliteShop",
     description:
