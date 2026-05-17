@@ -1,12 +1,63 @@
 @import "tailwindcss";
 
+@layer base {
+  :root {
+    --page-bg: #eff8ec;
+    --page-surface: #f8fff6;
+    --page-surface-strong: #ffffff;
+    --page-text: #17301f;
+    --page-muted: #5f7163;
+    --page-border: rgba(88, 131, 92, 0.18);
+    --page-accent: #6fbf7a;
+    --page-accent-strong: #4f9d61;
+    --page-heading: #1d3522;
+    --page-ambient-a: rgba(111, 191, 122, 0.14);
+    --page-ambient-b: rgba(111, 191, 122, 0.08);
+  }
+
+  .dark {
+    --page-bg: #0a0a0a;
+    --page-surface: #121212;
+    --page-surface-strong: #181818;
+    --page-text: #ffffff;
+    --page-muted: #cfcfcf;
+    --page-border: rgba(255, 255, 255, 0.09);
+    --page-accent: #f2b39c;
+    --page-accent-strong: #d89073;
+    --page-heading: #ffffff;
+    --page-ambient-a: rgba(242, 179, 156, 0.12);
+    --page-ambient-b: rgba(242, 179, 156, 0.06);
+  }
+
+  html[data-theme="mint"] {
+    --page-bg: #0a0a0a;
+    --page-surface: #121212;
+    --page-surface-strong: #181818;
+    --page-text: #ffffff;
+    --page-muted: #d5ddd9;
+    --page-border: rgba(140, 232, 195, 0.16);
+    --page-accent: #8ce8c3;
+    --page-accent-strong: #5cc89a;
+    --page-heading: #ffffff;
+    --page-ambient-a: rgba(140, 232, 195, 0.12);
+    --page-ambient-b: rgba(92, 200, 154, 0.06);
+  }
+}
+
 @theme {
-  --color-primary: #007AFF;
-  --color-secondary: #6B7280;
-  --color-dark: #1F2937;
-  --color-light: #F9FAFB;
-  --color-text: #000000;
-  --color-bg: #ffffff;
+  --color-primary: var(--page-accent);
+  --color-secondary: var(--page-muted);
+  --color-dark: var(--page-bg);
+  --color-light: var(--page-surface);
+  --color-text: var(--page-text);
+  --color-bg: var(--page-bg);
+  --color-surface: var(--page-surface);
+  --color-surface-strong: var(--page-surface-strong);
+  --color-border: var(--page-border);
+  --color-heading: var(--page-heading);
+  --color-accent-strong: var(--page-accent-strong);
+  --color-ambient-a: var(--page-ambient-a);
+  --color-ambient-b: var(--page-ambient-b);
 
   --font-sans: 'Inter', sans-serif;
 
@@ -19,6 +70,15 @@
 
 a {
   transition: all 0.2s ease;
+}
+
+html {
+  background: var(--page-bg);
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--page-text);
 }
 
 @layer components {

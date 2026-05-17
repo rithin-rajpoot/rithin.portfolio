@@ -55,18 +55,18 @@ const ProjectCard: React.FC<ProjectCardProps> = memo(({ project, index }) => {
       }}
     >
       <article 
-        className='relative bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-900/90 dark:to-gray-800/90 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl border border-white/20 dark:border-gray-700/30 transform-gpu transition-all duration-300 ease-out hover:-translate-y-2 hover:rotate-x-2 project-card'
+        className='relative bg-surface/90 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl border border-border transform-gpu transition-all duration-300 ease-out hover:-translate-y-2 hover:rotate-x-2 project-card'
         style={{
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+          background: 'linear-gradient(135deg, var(--page-surface) 0%, var(--page-surface-strong) 100%)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
         }}
       >
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent-strong/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
         {/* Animated border */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10" />
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/15 via-accent-strong/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10" />
 
         <div className="grid md:grid-cols-2 gap-0">
           {/* Image Section */}
@@ -84,11 +84,11 @@ const ProjectCard: React.FC<ProjectCardProps> = memo(({ project, index }) => {
 
           {/* Content Section */}
           <div className='p-8 flex flex-col justify-center relative z-10'>
-            <h3 className='text-2xl font-bold mb-4 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300'>
+            <h3 className='text-2xl font-bold mb-4 text-heading group-hover:text-primary transition-colors duration-300'>
               {project.title}
             </h3>
 
-            <p className='text-gray-600 dark:text-gray-300 mb-6 leading-relaxed'>
+            <p className='text-secondary mb-6 leading-relaxed'>
               {project.description}
             </p>
 
@@ -97,13 +97,13 @@ const ProjectCard: React.FC<ProjectCardProps> = memo(({ project, index }) => {
               {project.technologies.slice(0, 4).map((tech: string) => (
                 <span 
                   key={tech}
-                  className='px-3 py-1 bg-gray-100/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 hover:border-blue-500/30 hover:scale-105 hover:bg-blue-500/10 transition-all duration-300'
+                  className='px-3 py-1 bg-surface-strong/70 text-text rounded-full text-sm font-medium backdrop-blur-sm border border-border hover:border-primary/30 hover:scale-105 hover:bg-primary/10 transition-all duration-300'
                 >
                   {tech}
                 </span>
               ))}
               {project.technologies.length > 4 && (
-                <span className='px-3 py-1 bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium'>
+                <span className='px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium'>
                   +{project.technologies.length - 4}
                 </span>
               )}
@@ -114,7 +114,7 @@ const ProjectCard: React.FC<ProjectCardProps> = memo(({ project, index }) => {
               <Link 
                 href={project.githubLink} 
                 target='_blank' 
-                className='flex text-sm md:text-lg items-center gap-2 px-6 py-3 bg-gray-900/90 dark:bg-gray-100/90 text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 backdrop-blur-sm transform hover:scale-105 active:scale-95 project-button'
+                className='flex text-sm md:text-lg items-center gap-2 px-6 py-3 bg-surface-strong/70 text-text rounded-lg font-medium hover:bg-surface-strong transition-all duration-300 backdrop-blur-sm transform hover:scale-105 active:scale-95 project-button'
               >
                 <FaGithub className='w-4 h-4'/>
                 <span>Code</span>
@@ -123,17 +123,17 @@ const ProjectCard: React.FC<ProjectCardProps> = memo(({ project, index }) => {
               <Link 
                 href={project.demoLink || project.githubLink} 
                 target='_blank' 
-                className='flex text-sm md:text-lg items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 project-button'
+                className='flex text-sm md:text-lg items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 project-button'
               >
-                <span>View Live</span>
                 <FaExternalLinkAlt className='w-4 h-4'/>
+                <span>View Live</span>
               </Link>
             </div>
           </div>
         </div>
 
         {/* Shine effect */}
-        <div className="absolute inset-0 -top-2 -left-2 bg-gradient-to-r from-transparent via-white/10 to-transparent rotate-12 scale-110 opacity-0 group-hover:opacity-100 group-hover:animate-[shine_1s_ease-out] pointer-events-none" />
+        <div className="absolute inset-0 -top-2 -left-2 bg-gradient-to-r from-transparent via-primary/10 to-transparent rotate-12 scale-110 opacity-0 group-hover:opacity-100 group-hover:animate-[shine_1s_ease-out] pointer-events-none" />
       </article>
     </div>
   )
@@ -168,7 +168,7 @@ const Projects = () => {
       {/* Animated background elements */}
       <div className="absolute inset-0 -z-20">
         <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-72 h-72 bg-ambient-a rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -182,7 +182,7 @@ const Projects = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
+          className="absolute bottom-20 right-10 w-96 h-96 bg-ambient-b rounded-full blur-3xl"
           animate={{
             scale: [1.1, 0.9, 1.1],
             opacity: [0.2, 0.4, 0.2],
@@ -207,19 +207,19 @@ const Projects = () => {
             : 'opacity-0 translate-y-12'
         }`}
       >
-        <h2 className='text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 dark:from-white dark:via-blue-100 dark:to-purple-100 bg-clip-text text-transparent'>
+        <h2 className='text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-heading to-primary bg-clip-text text-transparent'>
           Featured Projects
         </h2>
         
         <div
-          className={`w-32 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto rounded-full transition-all duration-1000 ease-out ${
+          className={`w-32 h-1 bg-gradient-to-r from-primary via-accent-strong to-primary mx-auto rounded-full transition-all duration-1000 ease-out ${
             isHeaderVisible ? 'scale-x-100' : 'scale-x-0'
           }`}
           style={{ transitionDelay: '500ms' }}
         />
         
         <p
-          className={`text-gray-600 dark:text-gray-400 mt-4 text-lg max-w-2xl mx-auto transition-all duration-600 ease-out ${
+          className={`text-secondary mt-4 text-lg max-w-2xl mx-auto transition-all duration-600 ease-out ${
             isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
           }`}
           style={{ transitionDelay: '700ms' }}
@@ -246,7 +246,7 @@ const Projects = () => {
         <div className="inline-block transform transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:via-purple-700 hover:to-blue-900 transition-all duration-300 shadow-xl backdrop-blur-sm"
+            className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary/90 transition-all duration-300 shadow-xl backdrop-blur-sm"
           >
             View All Projects
             <motion.span

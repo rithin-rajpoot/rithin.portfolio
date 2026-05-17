@@ -36,7 +36,7 @@ const SnowBackground = () => {
       {snowflakes.map((flake) => (
         <motion.div
           key={flake.id}
-          className={`absolute w-1 h-1 bg-primary dark:bg-white/60 rounded-full ${
+          className={`absolute w-1 h-1 bg-primary dark:bg-primary/70 rounded-full ${
             flake.blur ? 'blur-[0.5px]' : ''
           }`}
           style={{
@@ -66,7 +66,7 @@ const SnowBackground = () => {
       ))}
       
       {/* Subtle gradient overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/5 dark:to-black/10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/5 dark:to-black/20 pointer-events-none" />
     </div>
   );
 };

@@ -1,62 +1,62 @@
 export const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.35 }
 }
 
 export const fadeInDown = {
   initial: { opacity: 0, y: -20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.35 }
 }
 
 export const fadeIn = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.3 }
 }
 
 export const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.05
     }
   }
 }
 
 export const cardHover = {
-  whileHover: { scale: 1.05 },
-  transition: { type: "spring", stiffness: 300 }
+  whileHover: { scale: 1.02 },
+  transition: { type: "spring", stiffness: 220 }
 }
 
 export const cardHoverSmall = {
-  whileHover: { scale: 1.02 },
-  transition: { type: "spring", stiffness: 300 }
+  whileHover: { scale: 1.01 },
+  transition: { type: "spring", stiffness: 220 }
 }
 
 export const pageTransition = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
   exit: { opacity: 0 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.3 }
 }
 
 export const slideInLeft = {
   initial: { x: -60, opacity: 0 },
   animate: { x: 0, opacity: 1 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.35 }
 }
 
 export const slideInRight = {
   initial: { x: 60, opacity: 0 },
   animate: { x: 0, opacity: 1 },
-  transition: { duration: 0.5, ease: "easeOutIn" }
+  transition: { duration: 0.35, ease: "easeOut" }
 }
 
 export const scaleIn = {
   initial: { scale: 0.8, opacity: 0 },
   animate: { scale: 1, opacity: 1 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.35 }
 } 
 
 // Add these to your existing animation variants
@@ -80,9 +80,9 @@ export const magneticHover = {
 export const glowPulse = {
   animate: {
     boxShadow: [
-      "0 0 0 0 rgba(59, 130, 246, 0.7)",
-      "0 0 0 10px rgba(59, 130, 246, 0)",
-      "0 0 0 0 rgba(59, 130, 246, 0)"
+      "0 0 0 0 rgba(101, 216, 138, 0.45)",
+      "0 0 0 8px rgba(101, 216, 138, 0)",
+      "0 0 0 0 rgba(101, 216, 138, 0)"
     ],
     transition: {
       duration: 2,
@@ -104,9 +104,9 @@ export const typewriterText = {
 
 export const floatingAnimation = {
   animate: {
-    y: [-10, 10, -10],
+    y: [-6, 6, -6],
     transition: {
-      duration: 3,
+      duration: 5,
       repeat: Infinity,
       ease: "easeInOut"
     }
@@ -115,10 +115,10 @@ export const floatingAnimation = {
 
 export const morphingButton = {
   whileHover: { 
-    scale: 1.05,
-    borderRadius: "50px",
-    background: "linear-gradient(45deg, #3b82f6, #8b5cf6)",
-    boxShadow: "0 10px 30px rgba(59, 130, 246, 0.3)"
+    scale: 1.03,
+    borderRadius: "14px",
+    background: "linear-gradient(45deg, #65d88a, #95e6ae)",
+    boxShadow: "0 8px 24px rgba(101, 216, 138, 0.2)"
   },
   whileTap: { 
     scale: 0.98,
@@ -133,16 +133,16 @@ export const morphingButton = {
 
 export const liquidHover = {
   whileHover: {
-    scale: 1.02,
-    borderRadius: ["8px", "20px", "8px"],
+    scale: 1.01,
+    borderRadius: ["10px", "14px", "10px"],
     transition: {
       borderRadius: {
-        duration: 0.8,
-        repeat: Infinity,
+        duration: 0.5,
+        repeat: 0,
         ease: "easeInOut"
       },
       scale: {
-        duration: 0.3
+        duration: 0.2
       }
     }
   }
@@ -150,19 +150,17 @@ export const liquidHover = {
 
 export const socialIconHover = {
   whileHover: {
-    scale: 1.2,
-    rotate: 360,
-    color: "#3b82f6",
-    filter: "drop-shadow(0 0 10px rgba(59, 130, 246, 0.8))",
+    scale: 1.08,
+    color: "#65d88a",
+    filter: "drop-shadow(0 0 8px rgba(101, 216, 138, 0.35))",
     transition: {
       type: "spring",
-      stiffness: 400,
-      damping: 10
+      stiffness: 240,
+      damping: 18
     }
   },
   whileTap: { 
-    scale: 0.9,
-    rotate: -10
+    scale: 0.95
   }
 }
 
@@ -177,15 +175,15 @@ export const slideUpStagger = {
   initial: { opacity: 0, y: 60 },
   animate: { opacity: 1, y: 0 },
   transition: { 
-    duration: 0.8,
-    ease: [0.6, -0.05, 0.01, 0.99]
+    duration: 0.45,
+    ease: [0.22, 1, 0.36, 1]
   }
 }
 
 export const rotateIn = {
   initial: { 
     opacity: 0, 
-    rotate: -180,
+    rotate: -6,
     scale: 0.5
   },
   animate: { 
@@ -194,15 +192,15 @@ export const rotateIn = {
     scale: 1
   },
   transition: { 
-    duration: 0.8,
-    ease: "backOut"
+    duration: 0.4,
+    ease: "easeOut"
   }
 }
 
 export const textReveal = {
   initial: { 
     opacity: 0,
-    y: 100,
+    y: 24,
     clipPath: "inset(100% 0 0 0)"
   },
   animate: { 
@@ -211,21 +209,21 @@ export const textReveal = {
     clipPath: "inset(0% 0 0 0)"
   },
   transition: { 
-    duration: 1,
-    ease: [0.76, 0, 0.24, 1]
+    duration: 0.45,
+    ease: [0.22, 1, 0.36, 1]
   }
 }
 
 export const elasticScale = {
   whileHover: {
-    scale: 1.1,
+    scale: 1.03,
     transition: {
       type: "spring",
-      stiffness: 600,
-      damping: 10
+      stiffness: 240,
+      damping: 18
     }
   },
   whileTap: {
-    scale: 0.95
+    scale: 0.97
   }
 }

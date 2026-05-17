@@ -118,14 +118,14 @@ const AboutPage = () => {
       <div className="flex items-center justify-between">
         <h3 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
           {title}
-          <span className="ml-3 text-emerald-500">→</span>
+          <span className="ml-3 text-primary">→</span>
         </h3>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
         {items.map((item) => (
           <div
             key={item.name}
-            className="group relative flex flex-col items-center justify-center gap-3 rounded-2xl border border-gray-300/40 dark:border-white/10 bg-white/90 dark:bg-white/5 px-4 py-6 shadow-[0_16px_40px_-28px_rgba(15,23,42,0.6)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-emerald-400/70 dark:hover:border-emerald-300/60"
+            className="group relative flex flex-col items-center justify-center gap-3 rounded-2xl border border-border bg-surface/90 px-4 py-6 shadow-[0_16px_40px_-28px_rgba(15,23,42,0.35)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40"
           >
             <item.icon className={`h-10 w-10 ${item.color} transition-transform duration-300 group-hover:scale-110`} />
             <span className="text-sm font-medium text-gray-700 dark:text-slate-200 tracking-wide text-center">
@@ -150,36 +150,36 @@ const AboutPage = () => {
               : 'translate-y-8 opacity-0'
           }`}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
-            Education <span className="ml-3 text-emerald-500">→</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-heading to-primary bg-clip-text text-transparent">
+            Education <span className="ml-3 text-primary">→</span>
 
           </h2>
-          <div className='flex flex-col w-full max-w-2xl items-end  gap-4'>
-            <div className="relative w-full overflow-hidden rounded-3xl border border-gray-200/40 dark:border-white/10 bg-gradient-to-br from-white via-gray-100 to-gray-200 dark:from-slate-950 dark:via-slate-950/60 dark:to-slate-900 px-8 py-10 shadow-[0_24px_70px_-32px_rgba(15,23,42,0.65)] transition-all duration-500 hover:-translate-y-1 hover:border-emerald-400/70 dark:hover:border-emerald-300/60">
+          <div className='flex flex-col w-full max-w-2xl items-end gap-4'>
+            <div className="relative w-full overflow-hidden rounded-3xl border border-border bg-surface/90 px-8 py-10 shadow-[0_24px_70px_-32px_rgba(15,23,42,0.35)] transition-all duration-500 hover:-translate-y-1 hover:border-primary/40">
               <div className="relative">
-                <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-600 rounded-full"></div>
-                <h3 className="text-lg md:text-2xl font-semibold mb-3 text-gray-800 dark:text-white">
+                <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-accent-strong rounded-full"></div>
+                <h3 className="text-lg md:text-2xl font-semibold mb-3 text-heading">
                   Bachelor of Technology in Computer Science
                 </h3>
-                <p className="text-blue-600 dark:text-blue-400 font-medium mb-2 text-md md:text-lg">
+                <p className="text-primary font-medium mb-2 text-md md:text-lg">
                   CMR Technical Campus | 2023 - 2027
                 </p>
-                <p className="text-gray-600 dark:text-gray-400 flex items-center">
+                <p className="text-secondary flex items-center">
                   <FaDatabase className="mr-2" />
                   Hyderabad, Telangana, India
                 </p>
               </div>
             </div>
-            <div className="relative w-full overflow-hidden rounded-3xl border border-gray-200/40 dark:border-white/10 bg-gradient-to-br from-white via-gray-100 to-gray-200 dark:from-slate-950 dark:via-slate-950/60 dark:to-slate-900 px-8 py-10 shadow-[0_24px_70px_-32px_rgba(15,23,42,0.65)] transition-all duration-500 hover:-translate-y-1 hover:border-emerald-400/70 dark:hover:border-emerald-300/60">
+            <div className="relative w-full overflow-hidden rounded-3xl border border-border bg-surface/90 px-8 py-10 shadow-[0_24px_70px_-32px_rgba(15,23,42,0.35)] transition-all duration-500 hover:-translate-y-1 hover:border-primary/40">
               <div className="relative">
-                <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-600 rounded-full"></div>
-                <h3 className="text-lg md:text-2xl font-semibold mb-3 text-gray-800 dark:text-white">
+                <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-accent-strong rounded-full"></div>
+                <h3 className="text-lg md:text-2xl font-semibold mb-3 text-heading">
                   Intermediate - MPC
                 </h3>
-                <p className="text-blue-600 dark:text-blue-400 font-medium mb-2 text-md md:text-lg">
+                <p className="text-primary font-medium mb-2 text-md md:text-lg">
                   Keshav Memorial Junior College | 2021 - 2023
                 </p>
-                <p className="text-gray-600 dark:text-gray-400 flex items-center">
+                <p className="text-secondary flex items-center">
                   <FaDatabase className="mr-2" />
                   Hyderabad, Telangana, India
                 </p>

@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 transition-colors dark:bg-black dark:text-white relative`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-bg text-text transition-colors relative`}
       >
         <ThemeProvider>
           {/* Snow Background */}

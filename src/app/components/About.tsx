@@ -78,7 +78,7 @@ const About = () => {
     },
     {
       name: "React.js",
-      color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
+      color: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200",
     },
     {
       name: "Redux Toolkit",
@@ -140,14 +140,14 @@ const About = () => {
           className="text-center mb-16"
         >
           <motion.h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-heading to-primary bg-clip-text text-transparent"
             variants={fadeInUp}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
             About Me
           </motion.h2>
           <motion.div
-            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto"
+            className="w-24 h-1 bg-gradient-to-r from-primary to-accent-strong rounded-full mx-auto"
             initial={{ scaleX: 0 }}
             animate={headerRef.isInView ? { scaleX: 1 } : { scaleX: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
@@ -169,11 +169,11 @@ const About = () => {
               variants={fadeInUp}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              <h3 className="text-2xl md:text-3xl font-bold text-heading mb-4">
                 Full Stack MERN Developer
               </h3>
               <div className="max-w-4xl mx-auto ">
-                <p className="text-sm md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm md:text-lg text-secondary leading-relaxed">
                   I&apos;m a Computer Science student with experience in frontend and backend development using React, Node.js, and MongoDB. I like building real-world projects, learning new technologies, and improving my problem-solving skills.
                 </p>
               </div>
@@ -189,7 +189,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="pt-6"
             >
-              <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h4 className="text-xl font-semibold text-heading mb-4">
                 Core Skills
               </h4>
               <motion.div
@@ -239,13 +239,13 @@ const About = () => {
                       scale: 1.05,
                       transition: { duration: 0.3 },
                     }}
-                    className="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+                    className="text-center p-4 bg-surface/80 rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow duration-300"
                   >
                     <div className="text-2xl mb-2">{item.icon}</div>
                     <div className="text-2xl font-bold text-primary mb-1">
                       {item.number}
                     </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">
+                    <div className="text-sm text-secondary">
                       {item.label}
                     </div>
                   </motion.div>
@@ -283,7 +283,7 @@ const About = () => {
 
                 {/* Animated dotted circles */}
                 <motion.div
-                  className="absolute inset-0 rounded-2xl border-2 border-dotted border-blue-500/60"
+                  className="absolute inset-0 rounded-2xl border-2 border-dotted border-primary/30"
                   animate={{
                     rotate: 360,
                     scale: [1, 1.05, 1],
@@ -301,7 +301,7 @@ const About = () => {
                 />
 
                 <motion.div
-                  className="absolute inset-0 rounded-2xl border-2 border-dotted border-purple-500/50"
+                  className="absolute inset-0 rounded-2xl border-2 border-dotted border-accent-strong/20"
                   animate={{
                     rotate: -360,
                     scale: [1.1, 1, 1.1],
@@ -324,7 +324,7 @@ const About = () => {
                 />
 
                 <motion.div
-                  className="absolute inset-0 rounded-2xl border border-dotted border-indigo-500/40"
+                  className="absolute inset-0 rounded-2xl border border-dotted border-border"
                   animate={{
                     rotate: 360,
                     opacity: [0.4, 0.7, 0.4],
@@ -348,7 +348,7 @@ const About = () => {
 
                 {/* Floating elements around the image */}
                 <motion.div
-                  className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg"
+                  className="absolute -top-6 -right-6 w-12 h-12 bg-primary/15 rounded-full flex items-center justify-center text-primary font-bold shadow-lg"
                   animate={{
                     y: [0, -10, 0],
                     rotate: [0, 10, -10, 0],
@@ -363,7 +363,7 @@ const About = () => {
                 </motion.div>
 
                 <motion.div
-                  className="absolute -bottom-8 -left-8 w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg"
+                  className="absolute -bottom-8 -left-8 w-16 h-16 bg-accent-strong/10 rounded-full flex items-center justify-center text-primary font-bold shadow-lg"
                   animate={{
                     y: [0, 15, 0],
                     rotate: [0, -15, 15, 0],
@@ -379,7 +379,7 @@ const About = () => {
                 </motion.div>
 
                 <motion.div
-                  className="absolute -top-4 -left-10 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg"
+                  className="absolute -top-4 -left-10 w-8 h-8 bg-surface-strong/70 rounded-full flex items-center justify-center text-primary font-bold shadow-lg"
                   animate={{
                     y: [0, -8, 0],
                     x: [0, 5, 0],
@@ -408,7 +408,7 @@ const About = () => {
           className="text-center mt-16"
         >
           <motion.p
-            className="text-lg text-gray-600 dark:text-gray-300 mb-6"
+            className="text-lg text-secondary mb-6"
             variants={fadeInUp}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
@@ -423,7 +423,7 @@ const About = () => {
                 boxShadow: "0 10px 30px rgba(59, 130, 246, 0.3)",
               }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="bg-primary text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Let&apos;s Connect
             </motion.button>

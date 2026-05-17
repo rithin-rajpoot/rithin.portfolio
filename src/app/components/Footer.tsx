@@ -75,7 +75,7 @@ const Footer = () => {
 
   return (
     <motion.footer 
-      className="bg-white dark:bg-black/90 border-t border-gray-200 dark:border-gray-800 shadow-md"
+      className="bg-surface/95 border-t border-border shadow-none"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -119,7 +119,7 @@ const Footer = () => {
             >
               <Link
                 href="https://github.com/rithin-rajpoot"
-                className="text-2xl text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-300"
+                className="text-2xl text-secondary hover:text-primary transition-colors duration-300"
               >
                 <FaGithub />
               </Link>
@@ -133,7 +133,7 @@ const Footer = () => {
             >
               <Link
                 href="https://www.linkedin.com/in/rithin-rajpoot/"
-                className="text-2xl text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-300"
+                className="text-2xl text-secondary hover:text-primary transition-colors duration-300"
               >
                 <FaLinkedin />
               </Link>
@@ -147,7 +147,7 @@ const Footer = () => {
             >
               <Link
                 href="https://x.com/RajpootRithin"
-                className="text-2xl text-gray-600 dark:text-gray-300 hover:text-primary transition-colors duration-300"
+                className="text-2xl text-secondary hover:text-primary transition-colors duration-300"
               >
                 <FaTwitter />
               </Link>

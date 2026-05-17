@@ -178,7 +178,7 @@ const ContactPage = () => {
                 {[...Array(8)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="absolute w-3 h-3 bg-blue-500/10 rounded-full"
+                        className="absolute w-3 h-3 bg-primary/10 rounded-full"
                         style={{
                             left: `${20 + i * 12}%`,
                             top: `${10 + (i % 3) * 30}%`,
@@ -199,7 +199,7 @@ const ContactPage = () => {
                 variants={itemVariants}
             >
                 <motion.h1 
-                    className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent"
+                    className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-heading to-primary bg-clip-text text-transparent"
                     initial={{ scale: 0.5, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ 
@@ -212,7 +212,7 @@ const ContactPage = () => {
                     Contact Me
                 </motion.h1>
                 <motion.div 
-                    className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"
+                    className="w-20 h-1 bg-gradient-to-r from-primary to-accent-strong mx-auto rounded-full"
                     initial={{ width: 0 }}
                     animate={{ width: 80 }}
                     transition={{ delay: 0.8, duration: 0.8 }}
@@ -234,10 +234,10 @@ const ContactPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
                     >
-                        <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-800 dark:text-white">
+                        <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-heading">
                             Get in Touch
                         </h2>
-                        <p className="text-gray-600 dark:text-gray-300 md:w-2/3 text-lg leading-relaxed">
+                        <p className="text-secondary md:w-2/3 text-lg leading-relaxed">
                             I&apos;m always open to discussing new projects, creative ideas, or
                             opportunities to be part of your visions.
                         </p>
@@ -251,23 +251,23 @@ const ContactPage = () => {
                     >
                         {/* Email */}
                         <motion.div 
-                            className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors duration-300"
+                            className="flex items-center gap-4 p-4 rounded-lg hover:bg-surface-strong/70 transition-colors duration-300"
                             variants={itemVariants}
                             whileHover={{ x: 10 }}
                             transition={{ type: "spring", stiffness: 300 }}
                         >
                             <motion.div
-                                className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center"
+                                className="flex-shrink-0 w-12 h-12 bg-primary/15 rounded-full flex items-center justify-center"
                                 whileHover="hover"
                                 variants={iconBounceVariants}
                             >
                                 <FaEnvelope className="w-6 h-6 text-white" />
                             </motion.div>
                             <div>
-                                <h3 className="font-semibold text-gray-800 dark:text-white">Email:</h3>
+                                <h3 className="font-semibold text-heading">Email:</h3>
                                 <Link
                                     href="mailto:rajpootrithin@gmail.com"
-                                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                                    className="text-secondary hover:text-primary transition-colors duration-300"
                                 >
                                     rajpootrithin@gmail.com
                                 </Link>
@@ -276,23 +276,23 @@ const ContactPage = () => {
 
                         {/* Phone */}
                         <motion.div 
-                            className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors duration-300"
+                            className="flex items-center gap-4 p-4 rounded-lg hover:bg-surface-strong/70 transition-colors duration-300"
                             variants={itemVariants}
                             whileHover={{ x: 10 }}
                             transition={{ type: "spring", stiffness: 300 }}
                         >
                             <motion.div
-                                className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-full flex items-center justify-center"
+                                className="flex-shrink-0 w-12 h-12 bg-primary/15 rounded-full flex items-center justify-center"
                                 whileHover="hover"
                                 variants={iconBounceVariants}
                             >
                                 <FaPhone className="w-6 h-6 text-white" />
                             </motion.div>
                             <div>
-                                <h3 className="font-semibold text-gray-800 dark:text-white">Mobile:</h3>
+                                <h3 className="font-semibold text-heading">Mobile:</h3>
                                 <Link
                                     href="tel:+917013047820"
-                                    className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
+                                    className="text-secondary hover:text-primary transition-colors duration-300"
                                 >
                                     (+91) 7013047820
                                 </Link>
@@ -301,21 +301,21 @@ const ContactPage = () => {
 
                         {/* Location */}
                         <motion.div 
-                            className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors duration-300"
+                            className="flex items-center gap-4 p-4 rounded-lg hover:bg-surface-strong/70 transition-colors duration-300"
                             variants={itemVariants}
                             whileHover={{ x: 10 }}
                             transition={{ type: "spring", stiffness: 300 }}
                         >
                             <motion.div
-                                className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center"
+                                className="flex-shrink-0 w-12 h-12 bg-primary/15 rounded-full flex items-center justify-center"
                                 whileHover="hover"
                                 variants={iconBounceVariants}
                             >
                                 <FaMapMarkerAlt className="w-6 h-6 text-white" />
                             </motion.div>
                             <div>
-                                <h3 className="font-semibold text-gray-800 dark:text-white">Location:</h3>
-                                <p className="text-gray-600 dark:text-gray-300">Hyderabad, Telangana, India</p>
+                                <h3 className="font-semibold text-heading">Location:</h3>
+                                <p className="text-secondary">Hyderabad, Telangana, India</p>
                             </div>
                         </motion.div>
                     </motion.div>
@@ -323,7 +323,7 @@ const ContactPage = () => {
 
                 {/* Contact Form */}
                 <motion.div 
-                    className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-gray-200/30 dark:border-gray-700/30"
+                    className="bg-surface/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-border"
                     variants={formVariants}
                     viewport={{ once: true, amount: 0.3 }}
                     whileHover={{ 
@@ -341,7 +341,7 @@ const ContactPage = () => {
                     >
                         {/* Name Field */}
                         <motion.div variants={itemVariants}>
-                            <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                            <label htmlFor="name" className="block text-sm font-medium mb-2 text-heading">
                                 Name
                             </label>
                             <motion.input
@@ -352,7 +352,7 @@ const ContactPage = () => {
                                 onChange={handleChange}
                                 value={formData.name}
                                 placeholder="Enter your name"
-                                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-300 placeholder:text-gray-400"
+                                className="w-full px-4 py-3 border border-border bg-surface-strong/80 text-text rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all duration-300 placeholder:text-secondary"
                                 variants={inputVariants}
                                 whileFocus="focus"
                                 initial="blur"
@@ -361,7 +361,7 @@ const ContactPage = () => {
 
                         {/* Email Field */}
                         <motion.div variants={itemVariants}>
-                            <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                            <label htmlFor="email" className="block text-sm font-medium mb-2 text-heading">
                                 Email
                             </label>
                             <motion.input
@@ -372,7 +372,7 @@ const ContactPage = () => {
                                 onChange={handleChange}
                                 value={formData.email}
                                 placeholder="Enter your email"
-                                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-300 placeholder:text-gray-400"
+                                className="w-full px-4 py-3 border border-border bg-surface-strong/80 text-text rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all duration-300 placeholder:text-secondary"
                                 variants={inputVariants}
                                 whileFocus="focus"
                                 initial="blur"
@@ -381,7 +381,7 @@ const ContactPage = () => {
 
                         {/* Message Field */}
                         <motion.div variants={itemVariants}>
-                            <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                            <label htmlFor="message" className="block text-sm font-medium mb-2 text-heading">
                                 Message
                             </label>
                             <motion.textarea
@@ -392,7 +392,7 @@ const ContactPage = () => {
                                 onChange={handleChange}
                                 value={formData.message}
                                 placeholder="Enter your message"
-                                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-300 placeholder:text-gray-400 resize-none"
+                                className="w-full px-4 py-3 border border-border bg-surface-strong/80 text-text rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all duration-300 placeholder:text-secondary resize-none"
                                 variants={inputVariants}
                                 whileFocus="focus"
                                 initial="blur"
@@ -403,7 +403,7 @@ const ContactPage = () => {
                         <motion.div variants={itemVariants}>
                             <motion.button 
                                 type="submit" 
-                                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-6 rounded-lg font-medium flex items-center justify-center gap-2 shadow-lg"
+                                className="w-full bg-primary text-white py-3 px-6 rounded-lg font-medium flex items-center justify-center gap-2 shadow-lg"
                                 variants={buttonVariants}
                                 animate={formStatus === "submitting" ? "submitting" : "idle"}
                                 whileHover="hover"
