@@ -117,8 +117,6 @@ export const morphingButton = {
   whileHover: { 
     scale: 1.03,
     borderRadius: "14px",
-    background: "linear-gradient(45deg, #65d88a, #95e6ae)",
-    boxShadow: "0 8px 24px rgba(101, 216, 138, 0.2)"
   },
   whileTap: { 
     scale: 0.98,

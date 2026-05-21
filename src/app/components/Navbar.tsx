@@ -85,7 +85,7 @@ const Navbar = () => {
                 >
                   <Link
                     href={item.href}
-                    className={`relative md:text-md px-2 transition-all duration-300 hover:text-primary font-bold ${
+                    className={`relative md:text-md px-2 transition-all duration-300 text-secondary hover:text-primary font-bold ${
                       isActive
                         ? "text-primary"
                         : "text-gray-300"

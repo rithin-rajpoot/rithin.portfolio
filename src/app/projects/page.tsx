@@ -46,7 +46,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
     <article
       className="relative bg-surface/90 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg border border-border transition-all duration-500 hover:-translate-y-1 hover:border-primary/40"
       style={{
-        background: "linear-gradient(135deg, rgba(52, 52, 52, 0.82) 0%, rgba(15, 15, 15, 0.62) 100%)",
+        background: "linear-gradient(135deg, secondary/60 0%, secondary/90 100%)",
         backdropFilter: "blur(16px)",
         WebkitBackdropFilter: "blur(16px)",
       }}

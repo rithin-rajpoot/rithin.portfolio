@@ -257,7 +257,7 @@ const ContactPage = () => {
                             transition={{ type: "spring", stiffness: 300 }}
                         >
                             <motion.div
-                                className="flex-shrink-0 w-12 h-12 bg-primary/15 rounded-full flex items-center justify-center"
+                                className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center"
                                 whileHover="hover"
                                 variants={iconBounceVariants}
                             >
@@ -282,7 +282,7 @@ const ContactPage = () => {
                             transition={{ type: "spring", stiffness: 300 }}
                         >
                             <motion.div
-                                className="flex-shrink-0 w-12 h-12 bg-primary/15 rounded-full flex items-center justify-center"
+                                className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center"
                                 whileHover="hover"
                                 variants={iconBounceVariants}
                             >
@@ -307,7 +307,7 @@ const ContactPage = () => {
                             transition={{ type: "spring", stiffness: 300 }}
                         >
                             <motion.div
-                                className="flex-shrink-0 w-12 h-12 bg-primary/15 rounded-full flex items-center justify-center"
+                                className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center"
                                 whileHover="hover"
                                 variants={iconBounceVariants}
                             >

@@ -95,7 +95,7 @@ const Hero = () => {
           <motion.p
             {...fadeInUp}
             transition={{ delay: 0.3 }}
-            className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 font-medium"
+            className="text-lg sm:text-xl md:text-2xl text-secondary-300 mb-8 font-medium"
           >
             Full Stack Developer (MERN) <span className="mx-2 text-primary">|</span> DSA Enthusiast
           </motion.p>
@@ -103,15 +103,15 @@ const Hero = () => {
           <motion.div
             {...fadeInUp}
             transition={{ delay: 0.4 }}
-            className="flex justify-center lg:justify-start space-x-4 mb-8"
+            className="flex justify-center lg:justify-start space-x-4 mb-8 text-secondary"
           >
-            <motion.a {...morphingButton} target="_blank" href="https://github.com/rithin-rajpoot" className="text-2xl text-gray-200 hover:text-primary transition-colors duration-300 p-3 rounded-full hover:bg-white/5">
+            <motion.a {...morphingButton} target="_blank" href="https://github.com/rithin-rajpoot" className="text-2xl hover:text-primary transition-colors duration-300 p-3 rounded-full hover:bg-white/5">
               <FaGithub />
             </motion.a>
-            <motion.a {...morphingButton} target="_blank" href="https://www.linkedin.com/in/rithin-rajpoot/" className="text-2xl text-gray-200 hover:text-primary transition-colors duration-300 p-3 rounded-full hover:bg-white/5">
+            <motion.a {...morphingButton} target="_blank" href="https://www.linkedin.com/in/rithin-rajpoot/" className="text-2xl hover:text-primary transition-colors duration-300 p-3 rounded-full hover:bg-white/5">
               <FaLinkedin />
             </motion.a>
-            <motion.a {...morphingButton} target="_blank" href="https://x.com/RajpootRithin" className="text-2xl text-gray-200 hover:text-primary transition-colors duration-300 p-3 rounded-full hover:bg-white/5">
+            <motion.a {...morphingButton} target="_blank" href="https://x.com/RajpootRithin" className="text-2xl hover:text-primary transition-colors duration-300 p-3 rounded-full hover:bg-white/5">
               <FaTwitter />
             </motion.a>
           </motion.div>
@@ -135,7 +135,7 @@ const Hero = () => {
             <motion.div {...morphingButton} className="relative">
               <Link
                 href="/contact"
-                className="border border-white/15 inline-block w-full sm:w-auto text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/5 transition-all duration-300 relative overflow-hidden group"
+                className="border border-secondary inline-block w-full sm:w-auto text-primary px-8 py-4 rounded-lg font-semibold transition-all duration-300 relative overflow-hidden group"
               >
                 <span className="relative z-10">Get In Touch</span>
               </Link>
