@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 
@@ -98,7 +98,7 @@ const About = () => {
 
   const highlights = [
     {
-      number: "1+",
+      number: "2+",
       label: "Years Experience",
       icon: "🚀",
     },
@@ -108,7 +108,7 @@ const About = () => {
       icon: "💻",
     },
     {
-      number: "300+",
+      number: "400+",
       label: "DSA Problems Solved",
       icon: "🧠",
     },
