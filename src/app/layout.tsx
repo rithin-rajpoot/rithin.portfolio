@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import { ThemeProvider } from "./context/ThemeContext";
 import Footer from "./components/Footer";
 import SnowBackground from "./components/SnowBackground";
+import CustomCursor from "./components/CustomCursor";
 
 
 const geistSans = Geist({
@@ -34,6 +35,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-bg text-text transition-colors relative`}
       >
         <ThemeProvider>
+          <CustomCursor />
           {/* Snow Background */}
           <SnowBackground />
           
