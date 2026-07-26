@@ -143,6 +143,17 @@ const AboutPage = () => {
   };
 
   const experienceItems: ExperienceItem[] = [
+    
+    {
+      title: "Software Developer Intern",
+      company: "Siemens EDA",
+      tag: "Internship",
+      location: "Hybrid · Hyderabad, Telangana, India",
+      duration: "July 2026 – Present",
+      side: "left",
+      icon: FaBriefcase,
+      summary: [],
+    },
     {
       title: "Software Engineering Intern",
       company: "Mittarv Technologies Pvt Ltd",
@@ -150,7 +161,7 @@ const AboutPage = () => {
       location: "Hybrid · Hyderabad, Telangana, India",
       duration: "Oct 2025 – Mar 2026",
       icon: FaBriefcase,
-      side: "left",
+      side: "right",
       summary: [
         "Developed UI features for web and mobile platforms using React, Redux, and Flutter while collaborating within a multi-developer codebase.",
         "Practiced Agile SCRUM methodology using Jira for sprint planning, task tracking, and backlog management.",
@@ -164,7 +175,7 @@ const AboutPage = () => {
       tag: "Training",
       location: "Onsite · Hyderabad, Telangana, India",
       duration: "Sept 2024 – Mar 2026",
-      side: "right",
+      side: "left",
       icon: FaGraduationCap,
       summary: [
         "Completed structured learning aligned with problem solving, interview preparation, and practical development workflows.",
@@ -176,7 +187,7 @@ const AboutPage = () => {
       tag: "Project-based Internship",
       location: "Remote Internship",
       duration: "June 2025 – July 2025",
-      side: "left",
+      side: "right",
       icon: FaLaptopCode,
       summary: [
         "Worked on project-based assignments focused on full stack web development, implementation, and delivery.",
